@@ -9,8 +9,9 @@ $nama = $_POST['nama'];
 $email = $_POST['email'];
 
 
-if(isset($_POST['login'])){
+if(isset($_POST['signup'])){
     ?>
+    
         <script>
     if(confirm("Apakah anda yakin dengan data anda?")){
         </script>
@@ -52,7 +53,7 @@ if(isset($_POST['login'])){
 	</tr>
     <br>
     <tr>
-		<td><input name='login' type='submit' value='Log in'></td>
+		<td><input name='signup' type='submit' value='Log in'></td>
 	</tr>
 </table>
 

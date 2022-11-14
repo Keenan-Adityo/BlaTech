@@ -20,8 +20,8 @@ if(isset($_POST['signup'])){
                 $query = mysqli_query($conn,$sql);
             ?>
         <script> 
-            alert("Data Berhasil Dimasukan"); 
-            document.location='index.php';
+            alert("Lanjutkan Dengan Memasukan Bio dan Foto Mu!"); 
+            document.location='signup2.php';
         </script>
     }
 
@@ -32,9 +32,9 @@ if(isset($_POST['signup'])){
 ?>
 
 
-<<form name="form" method="post">
+<form name="form" method="post">
 
-<h1 align="center">blaTech</h1>
+<img src="./assets/logo.png"  width="200px" height="200px" style=" display: block; margin-left: auto;margin-right: auto;" >
 <table align="center" border="0">
 	<tr>
 		<td><input name='username' type='text' placeholder="Username"></td>
@@ -53,7 +53,7 @@ if(isset($_POST['signup'])){
 	</tr>
     <br>
     <tr>
-		<td><input name='signup' type='submit' value='Log in'></td>
+		<td><input name='signup' type='submit' value='Next!'></td>
 	</tr>
 </table>
 

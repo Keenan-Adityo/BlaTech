@@ -2,32 +2,21 @@
 session_start();
 include 'connect.php';
 
-$id= $_POST['id'];
-$username = $_POST['username'];
-$password = $_POST['password'];
-$nama = $_POST['nama'];
-$email = $_POST['email'];
-
-
 if(isset($_POST['signup'])){
-    ?>
     
+    $_SESSION['username']=$_POST['username'];
+    $_SESSION['password']=$_POST['password'];
+    $_SESSION['nama']=$_POST['nama'];
+    $_SESSION['email']=$_POST['email'];
+
+    ?>
         <script>
-    if(confirm("Apakah anda yakin dengan data anda?")){
+            alert("Lanjutkan di window Selanjutnya!");
+            document.location="signup2.php";
         </script>
-            <?php
-                $sql = "INSERT INTO user(username,password,email,nama) values ('$username','$password','$email','$nama')";
-                $query = mysqli_query($conn,$sql);
-            ?>
-        <script> 
-            alert("Lanjutkan Dengan Memasukan Bio dan Foto Mu!"); 
-            document.location='signup2.php';
-        </script>
-    }
-
-
-
     <?php
+
+    
 }
 ?>
 

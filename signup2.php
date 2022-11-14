@@ -2,8 +2,11 @@
 session_start();
 include 'connect.php';
 
-$id= $_SESSION['id'];
-$bio = $_POST['bio']
+$username = $_SESSION['username'];
+$password = $_SESSION['password'];
+$nama = $_SESSION['nama'];
+$email = $_SESSION['email'];
+$bio = $_POST['bio'];
 $foto = $_POST['foto'];
 
 if(isset($_POST['signup'])){
@@ -12,16 +15,27 @@ if(isset($_POST['signup'])){
     $tempname = $_FILES["foto"]["tmp_name"];
     $folder = "./assets/profilepic/" . $filename;
 
-    $conn = mysqli_connect($host,$user,$pass,$db) or die("Koneksi Gagal");
-    $sql = "insert into user(bio,foto) values('$bio', '$filename') where id='$id' ";
+    $sql = "INSERT INTO user(username,password,email,nama,bio,foto) values ('$username','$password','$email','$nama','$bio','$filename')";
     $query = mysqli_query($conn,$sql);
-        if($query){
-            if (move_uploaded_file($tempname, $folder)) {
-                echo "Berhasil Upload!";
-            } else {
-                echo "Gagal Upload";
-            }
 
+    if($query){
+        ?>
+            <script>
+            alert("Data Berhasil Dimasukan!");
+            document.location="index.php";
+            </script>
+        <?php
+    }else{
+        
+        session_destroy();
+        ?>
+        <script>
+            alert("data yang anda masukan salah");
+            document.location="signup.php";
+        </script>
+        <?php
+    }
+      
     
 }
 

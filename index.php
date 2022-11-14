@@ -28,7 +28,7 @@ if(isset($_POST['login'])){
 
 <form name="form" method="post">
 
-<h1 align="center">blaTech</h1>
+<img src="./assets/logo.png"  width="200px" height="200px" style=" display: block; margin-left: auto;margin-right: auto;" >
 <table align="center" border="0">
 	<tr>
 		<td><input name='username' type='text' placeholder="username"></td>

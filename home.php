@@ -11,11 +11,19 @@
 </head>
 <body>
     <div id="mySidenav" class="sidenav">
+<<<<<<< HEAD
     <img src="img/logo.png" alt="" class="logo">
     <a href="home.php">Home</a>
     <a href="create_post.php">[+] (create post)</a>
     <a href="profile.php">Profil</a>
     <a href="logout.php">Log Out</a>
+=======
+            <img src="img/logo.png" alt="" class="logo">
+    <a href="#">Home</a>
+    <a href="#">[+] (create post)</a>
+    <a href="#">Profil</a>
+    <a href="Logout">Log Out</a>
+>>>>>>> 5231fc70544249529195d8f2d237a96df09a7643
     </div>
 </body>
 </html>

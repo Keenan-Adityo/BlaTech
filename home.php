@@ -12,7 +12,7 @@
 <body>
 
     <div id="mySidenav" class="sidenav">
-            <img src="img/Blatech.png" alt="" class="logo">
+            <img src="img/logo.png" alt="" class="logo">
     <a href="#">Home</a>
     <a href="#">[+] (create post)</a>
     <a href="#">Profil</a>

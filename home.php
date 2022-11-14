@@ -1,1 +1,3 @@
-ammar ganteng;
+<?php
+echo "Aku sayang dia"
+?>

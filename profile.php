@@ -2,9 +2,7 @@
 session_start();
 include 'connect.php';
 
-$_SESSION = 
-$username = $_POST['username'];
-$password = $_POST['password'];
+$_SESSION['username'] = $row['username'];
 $sql = "SELECT * FROM `user` WHERE username='$username' and password='$password'";
 $query = mysqli_query($conn,$sql);
     if($row=mysqli_fetch_array($query)){

@@ -11,7 +11,7 @@
 </head>
 <body>
     <div id="mySidenav" class="sidenav">
-    <img src="img/logo.png" alt="" class="logo">
+    <img src="assets/logo.png" alt="" class="logo">
     <a href="home.php">Home</a>
     <a href="create_post.php">[+] (create post)</a>
     <a href="profile.php">Profil</a>

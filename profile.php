@@ -7,18 +7,19 @@ $_SESSION['password'] = $row['password'];
 $sql = "SELECT * FROM user";
 $query = mysqli_query($conn,$sql);
     if($row=mysqli_fetch_array($query)){
-    echo "hai";
     }else{}
 ?>
 
-<div class="kotakan">
+<div class="bagianatas">
             <header class="profile">
                 <div class="atas">
-                    <h1 class="username"><?php echo $row['username']?></h1>
+                    <p class="username"><?php echo $row['username']?></p>
                 </div>
                 <div class="Folowers">
                 <p class="followers">Followers</p>
+
                 <p class="following">Following</p>
+
                 <p class="jumlahpost">Jumlah Post</p>
 
                 </div>
@@ -26,6 +27,9 @@ $query = mysqli_query($conn,$sql);
                     <p class="aboutme1"><?php $sql="SELECT * from user where aboutme="?></p>
                 </div>
             </header>
+    
+            <td><img src='$row[foto]' width='300' height='200'></td>
+					<td>
 </div>
 	
 

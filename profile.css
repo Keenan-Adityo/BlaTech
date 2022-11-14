@@ -1,0 +1,25 @@
+.bagianatas{
+    display: grid;
+    gap: 10px;
+}
+.bagianatas.profile{
+    text-align: center;
+}
+
+/* Header */
+header{
+    display: grid;
+}
+
+.atas{
+    grid-area: hero;
+    min-height: 300px;
+    background-size: cover;
+    background-position: center;
+    padding: 50px;
+}
+
+.atas >*{
+    display: none;
+
+}

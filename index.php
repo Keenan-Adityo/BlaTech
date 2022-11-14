@@ -11,17 +11,10 @@ $query = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($query);
 if(isset($_POST['login'])){
 	if($row['username']==$username && $row['password']==$password){
-		$username = $_SESSION['id'];
-		$username = $_SESSION['username'];
-		$password = $_SESSION['password'];
-		$password = $_SESSION['nama'];
-		$email = $_SESSION['email'];
-		$bio = $_SESSION['bio'];
-
-		//kurang foto!
+		$_SESSION['id'] = $row['id'];
 
 		?>
-		<script> alert("Berhasil login"); document.location='view.php';</script>
+		<script> alert("Berhasil login"); document.location='home.php';</script>
 		<?php
 	}else{
 			?>

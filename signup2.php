@@ -71,6 +71,6 @@ if(isset($_POST['signup'])){
 	</tr>
 	<br>
     <tr>
-		<td><input name='signup' type='submit' value='Sign Up!' align="center">|<a href="index.php"><button>Lewati</button></td></td>
+		<td><input name='signup' type='submit' value='Sign Up!' align="center">|<input type="button" onclick="location.href='index.php';" value="Lewati" />
 	</tr>
 </table>

@@ -18,7 +18,7 @@ if(isset($_POST['login'])){
 		<?php
 	}else{
 			?>
-		<script> alert("Password atau Username Salah 1"); document.location='index.php';</script>
+		<script> alert("Password atau Username Salah!"); document.location='index.php';</script>
 		<?php
 	}
 }

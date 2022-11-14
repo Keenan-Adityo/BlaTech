@@ -2,19 +2,39 @@
 session_start();
 include 'connect.php';
 
+$username = $_POST['username'];
+
 if(isset($_POST['signup'])){
     
+    $sql = "select * from user where username ='$username'";
+    $query = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_array($query);
+    if($username == $row['username']){
+        ?>
+        <script>
+            alert("Silahkan Pilih Username Lain");
+            document.location="signup.php";
+        </script>
+    <?php
+
+    }else{
+
     $_SESSION['username']=$_POST['username'];
     $_SESSION['password']=$_POST['password'];
     $_SESSION['nama']=$_POST['nama'];
     $_SESSION['email']=$_POST['email'];
 
-    ?>
+        ?>
         <script>
-            alert("Data Sudah Dimasukan!, Lanjutkan untuk mengisi bio dan foto di window Selanjutnya!");
+            alert("Data Berhasil Dimasukan!");
             document.location="signup2.php";
         </script>
     <?php
+
+    }
+
+
+    
 
 
     
@@ -48,7 +68,7 @@ if(isset($_POST['signup'])){
 	</tr>
     <br>
     <tr>
-		<td><input name='signup' type='submit' value='Signup'>|<a href="index.php"><button>Kembali</button></td>
+		<td><input name='signup' type='submit' value='Signup'>|<input type="button" onclick="location.href='index.php';" value="Kembali" />
 	</tr>
 </table>
 </body>

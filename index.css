@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+*{
+    margin: auto;
+  box-sizing: border-box;
+  outline: none;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+body{
+  background: #999999;
+  font-size: 14px;
+   
+}
+
+.wrapper .signup{
+  margin: 10px 0 20px;
+  padding: 25px 40px;
+  text-align: center;
+  color: #262626;
+}
+.wrapper .signup p{
+   color: #262626;
+
+}
+.wrapper .signup a{
+  color: #3897f0;
+}
+
+
+.get{
+background: linear-gradient(45deg,black ,black) ! important;
+position: absolute;
+top: 0;
+width: 100%;
+padding: 10px 1em;
+
+}
+.get p{
+
+color: #fff;
+}
+.get #p1{
+  font-size: 0.9em;
+  color: #fff;
+  float: left;
+  
+  width: 70%;
+}
+
+.get #p2{
+     float: right;
+    
+    text-align: center; 
+    border: 1px solid #fff;
+    border-radius: 2px;
+    padding: 5px 1em;
+}

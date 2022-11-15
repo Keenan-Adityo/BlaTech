@@ -4,9 +4,12 @@ include 'connect.php';
 
 $_SESSION['username'] = $row['username'];
 $_SESSION['password'] = $row['password'];
-$sql = "SELECT * FROM user";
+$_SESSION['foto'] = $row['foto'];
+$filegambar = $row['foto'];
+$sql = "select * from user";
 $query = mysqli_query($conn,$sql);
     if($row=mysqli_fetch_array($query)){
+        
     }else{}
 ?>
 
@@ -27,9 +30,9 @@ $query = mysqli_query($conn,$sql);
                     <p class="aboutme1"><?php $sql="SELECT * from user where aboutme="?></p>
                 </div>
             </header>
-    
-            <td><img src='$row[foto]' width='300' height='200'></td>
-					<td>
+
+            <td><?PHP echo"<img src='$row[foto]' width='300' height='200'>"
+            ?></td>
 </div>
 	
 

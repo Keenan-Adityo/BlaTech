@@ -18,7 +18,7 @@ if(isset($_POST['signup'])){
     $tempname = $_FILES["foto"]["tmp_name"];
     $folder = "./assets/profilepic/" . $filename;
 
-    $sql = "UPDATE SET user(bio,foto) values ('$bio','$filename')";
+    $sql = "insert into user(foto) values('$folder')";
     $query = mysqli_query($conn,$sql);
 
     if($query){

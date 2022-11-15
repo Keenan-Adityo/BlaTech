@@ -18,7 +18,7 @@ if(isset($_POST['login'])){
 		<?php
 	}else{
 			?>
-		<script> alert("Password atau Username Salah 1"); document.location='index.php';</script>
+		<script> alert("Password atau Username Salah!"); document.location='index.php';</script>
 		<?php
 	}
 }
@@ -28,7 +28,7 @@ if(isset($_POST['login'])){
 
 <form name="form" method="post">
 
-<h1 align="center">blaTech</h1>
+<img src="./assets/logo.png"  width="200px" height="200px" style=" display: block; margin-left: auto;margin-right: auto;" >
 <table align="center" border="0">
 	<tr>
 		<td><input name='username' type='text' placeholder="username"></td>
@@ -41,9 +41,8 @@ if(isset($_POST['login'])){
 	<tr>
 		<td><input name='login' type='submit' value='Log in'></td>
 	</tr>
-	<tr>
-		<td>Tidak Punya Akun di Blatech? ,kamu harus <a href="signup.php">Daftar!</a></td>
-	</tr>
+	
 </table>
+<p align="center">Tidak Punya Akun di Blatech? <a href="signup.php">Daftar!</a></p>
 
 <html>

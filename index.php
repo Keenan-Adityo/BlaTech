@@ -1,12 +1,15 @@
 <?php
 session_start();
 include 'connect.php';
+
 $username = $_POST['username'];
 $password = $_POST['password'];
 $login =$_POST['login'];
+
 $sql = "SELECT * FROM `user` WHERE username='$username' and password='$password'";
 $query = mysqli_query($conn,$sql);
 $row = mysqli_fetch_array($query);
+
 if(isset($_POST['login'])){
 	if($row['username']==$username && $row['password']==$password){
 		$_SESSION['id'] = $row['id'];
@@ -23,6 +26,8 @@ if(isset($_POST['login'])){
 
 ?>
 
+<html>
+
 <link rel="stylesheet" href="index.css">
 <div class="wrapper">
     <div class="get">
@@ -34,11 +39,17 @@ if(isset($_POST['login'])){
 <img src="./assets/logo.png"  width="200px" height="200px" style=" display: block; margin-left: auto;margin-right: auto;" >
 <table align="center" border="0">
 	<tr>
-		<td><input name='username' type='text' placeholder="username" class="input"></td>
+		<td><input name='username' type='text' placeholder="username" required
+				oninvalid="this.setCustomValidity('masukan Username anda disini!')" 
+				oninput="this.setCustomValidity('')" 
+				class="input"></td>
 	</tr>
 	<br>
 	<tr>
-		<td><input name='password' type='password' placeholder="password" class="input"></td>
+		<td><input name='password' type='password' placeholder="password" required 
+				oninvalid="this.setCustomValidity('masukan Password anda disini!')" 
+				oninput="this.setCustomValidity('')" 
+				class="input"></td>
 	</tr>
 	<br>
 	<tr>
@@ -51,4 +62,4 @@ if(isset($_POST['login'])){
 </form>
 </div>
 
-<html>
+</html>

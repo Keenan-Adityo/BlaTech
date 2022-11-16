@@ -44,13 +44,17 @@ if(isset($_POST['signup'])){
 
 ?>
 
+<html>
 <head>
     <title>Blatech</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- CSS only -->
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
+<div class="wrapper">
+    <div class="get">
+        <p id="p1" > <b>BlaTech</b><br>Cari sekarang juga.</p>
+        <p id="p2"><input type="submit" value="Dapatkan"></p>
+    </div>
 <form name="form" method="post">
 
 <img src="./assets/logo.png"  width="200px" height="200px" style=" display: block; margin-left: auto;margin-right: auto;" >
@@ -59,7 +63,7 @@ if(isset($_POST['signup'])){
 		<td><p>Katakan Semua Tentangmu! : </p></td>
 	</tr>
 	<tr>
-		<td><textarea name="bio" ></textarea>
+		<td><textarea name="bio" style="resize: none; width: 400px; height: 100px;"></textarea>
 	</tr>
     </br>
     <tr>
@@ -74,3 +78,6 @@ if(isset($_POST['signup'])){
 		<td><input name='signup' type='submit' value='Sign Up!' align="center">|<input type="button" onclick="location.href='index.php';" value="Lewati" />
 	</tr>
 </table>
+</form>
+</body>
+</html>

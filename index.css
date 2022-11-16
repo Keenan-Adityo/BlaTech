@@ -59,3 +59,12 @@ color: #fff;
     border-radius: 2px;
     padding: 5px 1em;
 }
+
+.input{
+  border: 2px solid black;
+  padding: 10px;
+  border-radius: 50px 20px;
+
+}
+
+

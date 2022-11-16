@@ -27,7 +27,11 @@ if(isset($_POST['login'])){
 ?>
 
 <html>
+<head>
+    <title>Blatech</title>
+</head>
 
+<body>
 <link rel="stylesheet" href="index.css">
 <div class="wrapper">
     <div class="get">
@@ -46,7 +50,7 @@ if(isset($_POST['login'])){
 	</tr>
 	<br>
 	<tr>
-		<td><input name='password' type='password' placeholder="password" required 
+		<td><input name='password' type='password' placeholder="password" required
 				oninvalid="this.setCustomValidity('masukan Password anda disini!')" 
 				oninput="this.setCustomValidity('')" 
 				class="input"></td>
@@ -61,5 +65,6 @@ if(isset($_POST['login'])){
 </div>
 </form>
 </div>
+</body>
 
 </html>

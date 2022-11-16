@@ -40,6 +40,8 @@ if(isset($_POST['signup'])){
     
 }
 ?>
+<html>
+<link rel="stylesheet" href="index.css">
 <head>
     <title>Blatech</title>
     <link rel="stylesheet" href="style.css">
@@ -47,24 +49,37 @@ if(isset($_POST['signup'])){
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous"> -->
 </head>
 <body>
+<div class="wrapper">
+    <div class="get">
+        <p id="p1" > <b>BlaTech</b><br>Cari sekarang juga.</p>
+        <p id="p2"><input type="submit" value="Dapatkan"></p>
+    </div>
 <img src="./assets/logo.png"  width="200px" height="200px" style=" display: block; margin-left: auto;margin-right: auto;" >
 <form name="form" method="post">
 
 <table align="center" border="0">
 	<tr>
-		<td><input name='username' type='text' placeholder="Username"></td>
+		<td><input name='username' type='text' placeholder="Username" required
+				oninvalid="this.setCustomValidity('masukan Username anda disini!')" 
+				oninput="this.setCustomValidity('')" ></td>
 	</tr>
 	<br>
 	<tr>
-		<td><input name='password' type='password' placeholder="Password"></td>
+		<td><input name='password' type='password' placeholder="Password" required
+				oninvalid="this.setCustomValidity('masukan password anda disini!')" 
+				oninput="this.setCustomValidity('')" ></td>
 	</tr>
 	<br>
 	<tr>
-		<td><input name='nama' type='nama' placeholder="Nama Lengkap"></td>
+		<td><input name='nama' type='nama' placeholder="Nama Lengkap" required
+				oninvalid="this.setCustomValidity('masukan Nama Lengkap anda disini!')" 
+				oninput="this.setCustomValidity('')" ></td>
 	</tr>
     <br>
 	<tr>
-		<td><input name='email' type='email' placeholder="Email"></td>
+		<td><input name='email' type='email' placeholder="Email" required
+				oninvalid="this.setCustomValidity('masukan Email anda disini!')" 
+				oninput="this.setCustomValidity('')" ></td>
 	</tr>
     <br>
     <tr>
@@ -72,4 +87,4 @@ if(isset($_POST['signup'])){
 	</tr>
 </table>
 </body>
-<html>
+</html>

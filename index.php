@@ -2,6 +2,8 @@
 session_start();
 include 'connect.php';
 
+$_SESSION['login']=false;
+
 $username = $_POST['username'];
 $password = $_POST['password'];
 $login =$_POST['login'];
@@ -17,6 +19,7 @@ if(isset($_POST['login'])){
 		?>
 		<script> alert("Berhasil login"); document.location='home.php';</script>
 		<?php
+		$_SESSION['login'] = true;
 	}else{
 			?>
 		<script> alert("Password atau Username Salah!"); document.location='index.php';</script>

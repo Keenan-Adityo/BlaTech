@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'connect.php';
+include 'isSigning.php';
 
 $username = $_SESSION['username'];
 $password = $_SESSION['password'];
@@ -9,8 +10,6 @@ $email = $_SESSION['email'];
 $bio = $_POST['bio'];
 $foto = $_POST['foto'];
 
-$sql = "INSERT INTO user(username,password,email,nama) values ('$username','$password','$email','$nama')";
-mysqli_query($conn,$sql);
 
 if(isset($_POST['signup'])){
 
@@ -18,25 +17,28 @@ if(isset($_POST['signup'])){
     $tempname = $_FILES["foto"]["tmp_name"];
     $folder = "./assets/profilepic/" . $filename;
 
-    $sql = "insert into user(foto) values('$folder')";
-    $query = mysqli_query($conn,$sql);
+    //!!!!!!!!!!!!!masih error dibagian sini!!!!!!!!!!!!!
+    $sql = "update user set foto='$foto',bio='$bio' where username='$username' AND password='$password' AND nama='$nama' AND email='$email'" ;
+    mysqli_query($conn,$sql);
+    //!!!!!!!!!!!!!masih error bagian sini!!!!!!!!!!!!!
 
-    if($query){
+    if(mysqli_query($conn,$sql)){
         ?>
             <script>
             alert("Data Berhasil Dimasukan!");
             document.location="index.php";
             </script>
         <?php
+            session_destroy();
     }else{
         
-        session_destroy();
-        ?>
+         ?>
         <script>
             alert("data yang anda masukan salah");
             document.location="signup.php";
         </script>
         <?php
+        session_destroy();
     }
       
     
@@ -63,7 +65,7 @@ if(isset($_POST['signup'])){
 		<td><p>Katakan Semua Tentangmu! : </p></td>
 	</tr>
 	<tr>
-		<td><textarea name="bio" style="resize: none; width: 400px; height: 100px;"></textarea>
+		<td><textarea name="bio" id="bio" style="resize: none; width: 400px; height: 100px;"></textarea>
 	</tr>
     </br>
     <tr>

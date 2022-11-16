@@ -3,6 +3,9 @@ session_start();
 include 'connect.php';
 
 $username = $_POST['username'];
+$password = $_POST['password'];
+$email = $_POST['email'];
+$nama = $_POST['nama'];
 
 if(isset($_POST['signup'])){
     
@@ -19,10 +22,14 @@ if(isset($_POST['signup'])){
 
     }else{
 
+    $sql1 = "INSERT INTO user(username,password,email,nama) values ('$username','$password','$email','$nama')";
+    mysqli_query($conn,$sql1);
+
     $_SESSION['username']=$_POST['username'];
     $_SESSION['password']=$_POST['password'];
     $_SESSION['nama']=$_POST['nama'];
     $_SESSION['email']=$_POST['email'];
+    $_SESSION['prosesSign'] = true;
 
         ?>
         <script>

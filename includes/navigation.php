@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="style.css">
-<div id="mySidenav" class="sidenav">
+<div class="sidenav">
     <img src="assets/logo.png" alt="" class="logo">
     <a href="home.php">Home</a>
     <a href="create_post.php">[+] (create post)</a>

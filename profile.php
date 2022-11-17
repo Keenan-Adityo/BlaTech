@@ -2,11 +2,9 @@
 session_start();
 include 'connect.php';
 
-$_SESSION['username'] = $row['username'];
-$_SESSION['password'] = $row['password'];
-$_SESSION['foto'] = $row['foto'];
-$filegambar = $row['foto'];
-$sql = "select * from user";
+$id = $_SESSION['id'];
+
+$sql = "select * from user where id='$id'";
 $query = mysqli_query($conn,$sql);
     if($row=mysqli_fetch_array($query)){
         
@@ -27,12 +25,11 @@ $query = mysqli_query($conn,$sql);
 
                 </div>
                 <div class="aboutme">
-                    <p class="aboutme1"><?php $sql="SELECT * from user where aboutme="?></p>
+                    <p class="aboutme1"><?php $row['bio']?></p>
                 </div>
             </header>
 
-            <td><?PHP echo"<img src='$row[foto]' width='300' height='200'>"
-            ?></td>
+            <td><?PHP echo"<img src='$row[foto]' width='300' height='200'>"?></td>
 </div>
 	
 

@@ -1,6 +1,7 @@
 <?php 
     session_start();
     include 'includes/navigation.php';
+    include 'isLogged.php'
 ?>
 
 <html lang="en">

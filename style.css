@@ -1,6 +1,7 @@
 /* navigation */
 body {
   font-family: "Lato", sans-serif;
+  background-color: #fafafa !important;
 }
 
 .sidenav {
@@ -33,12 +34,17 @@ body {
     width: 200px;
     height: auto;
 }
-body {
-    background-color: gray;
-}
+
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
 }
 
 /* post */

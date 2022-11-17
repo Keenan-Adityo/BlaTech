@@ -11,7 +11,7 @@
 }
 
 body{
-  background: #999999;
+  background: #fbf9f9;
   font-size: 14px;
    
 }
@@ -20,7 +20,7 @@ body{
   margin: 10px 0 20px;
   padding: 25px 40px;
   text-align: center;
-  color: #262626;
+  color: #7e4c4c;
 }
 .wrapper .signup p{
    color: #262626;
@@ -32,7 +32,7 @@ body{
 
 
 .get{
-background: linear-gradient(45deg,black ,black) ! important;
+background: linear-gradient(45deg,#17cfae ,#17cfae) ! important;
 position: absolute;
 top: 0;
 width: 100%;
@@ -61,10 +61,19 @@ color: #fff;
 }
 
 .input{
+  size: auto;
   border: 2px solid black;
   padding: 10px;
-  border-radius: 50px 20px;
-
+  border-radius: 50px 50px;
 }
+
+.login{
+  size: auto;
+  border: 2px solid black;
+  border-radius: 10px 10px;
+  padding : 5px;
+  margin-left: 60px;
+}
+
 
 

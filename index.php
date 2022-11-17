@@ -60,7 +60,7 @@ if(isset($_POST['login'])){
 	</tr>
 	<br>
 	<tr>
-		<td><input name='login' type='submit' value='Log in'></td>
+		<td><input name='login' type='submit' value='Log in' class="login"></td>
 	</tr>
 	
 </table><div class="signup">

@@ -15,7 +15,7 @@ if(isset($_POST['signup'])){
 
 	$filename = $_FILES["foto"]["name"];
     $tempname = $_FILES["foto"]["tmp_name"];
-    $folder = "./assets/profilepic/" . $filename;
+    $folder = "./assets/profile_picture/" . $filename;
 
     //!!!!!!!!!!!!!masih error dibagian sini!!!!!!!!!!!!!
     $sql = "update user set foto='$foto',bio='$bio' where username='$username' AND password='$password' AND nama='$nama' AND email='$email'" ;
@@ -23,7 +23,7 @@ if(isset($_POST['signup'])){
     //!!!!!!!!!!!!!masih error bagian sini!!!!!!!!!!!!!
 
     if(mysqli_query($conn,$sql)){
-        ?>
+        ?>   
             <script>
             alert("Data Berhasil Dimasukan!");
             document.location="index.php";

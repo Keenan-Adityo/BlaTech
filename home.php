@@ -53,7 +53,7 @@
                                         <div class='p-2'><i class='bi bi-heart'></i></div>
                                         <div class='p-2'><i class='bi bi-chat'></i></div>
                                     </div>
-                                    <p><b>"; echo $user['username']; echo "</b> "; echo $feed['description']; echo "</p>
+                                    <p><b>"; echo $o_user['username']; echo "</b> "; echo $feed['description']; echo "</p>
                                     <p>View all 0 comments</p>
                                     <p><b>username</b> 1 top komen</p>
                                    

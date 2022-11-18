@@ -17,10 +17,7 @@ if(isset($_POST['signup'])){
     $tempname = $_FILES["foto"]["tmp_name"];
     $folder = "./assets/profile_picture/" . $filename;
 
-    //!!!!!!!!!!!!!masih error dibagian sini!!!!!!!!!!!!!
     $sql = "update user set foto='$foto',bio='$bio' where username='$username' AND password='$password' AND nama='$nama' AND email='$email'" ;
-    mysqli_query($conn,$sql);
-    //!!!!!!!!!!!!!masih error bagian sini!!!!!!!!!!!!!
 
     if(mysqli_query($conn,$sql)){
         ?>   

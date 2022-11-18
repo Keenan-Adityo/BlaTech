@@ -1,7 +1,15 @@
 <?php 
     session_start();
     include 'includes/navigation.php';
-    include 'isLogged.php'
+    include 'isLogged.php';
+    include 'connect.php';
+    $id = $_SESSION['id'];
+    $userQuery = mysqli_query($conn, "select * from user where id = '$id'");
+    $user = mysqli_fetch_array($userQuery);
+    // cek follow
+    
+    // cek postnya follow tampilin
+
 ?>
 
 <html lang="en">
@@ -16,100 +24,81 @@
 <body>
     <div class="row">
         <div class="col">
-            <div class="card" style="max-width: 35rem;">
-                <div class="card-header">
-                    <div class="d-flex flex-row">
-                        <div class="p-2">
-                            <img src="assets/Ammar.jpg" alt="avatar" class="avatar" style="width: 25px; height: 25px;">
-                        </div>
-                        <div class="p-2 flex-fill">username</div>
-                    </div>
-                </div>
-                <img src="assets/Ammar.jpg" alt="blatech" class="card-img">
-                <div class="card-img-overlay">
-                    <div class="card-body">
-                    </div>
-                </div>
-                <div class="card-footer">
-                     <div class="d-flex flex-column">
-                        <div class="d-flex flex-row">
-                            <div class="p-2"><i class="bi bi-heart"></i></div>
-                            <div class="p-2"><i class="bi bi-chat"></i></div>
-                        </div>
-                        <?php
-                        $idx = 10;
-                        echo "<p><b>username</b> deskripsi posting</p>";
-                        // view comment masuk ke modal 
-                        echo "<p>View all 0 comments</p>";
-                        echo "<p><b>username</b> 1 top komen</p>";
-                        ?>
-                        
-                     </div>
-                </div>
-            </div>
-            <div class="card" style="max-width: 35rem;">
-                <div class="card-header">
-                    <div class="d-flex flex-row">
-                        <div class="p-2">
-                            <img src="assets/Ammar.jpg" alt="avatar" class="avatar" style="width: 25px; height: 25px;">
-                        </div>
-                        <div class="p-2 flex-fill">username</div>
-                    </div>
-                </div>
-                <img src="assets/Ammar.jpg" alt="blatech" class="card-img">
-                <div class="card-img-overlay">
-                    <div class="card-body">
-                    </div>
-                </div>
-                <div class="card-footer">
-                     <div class="d-flex flex-column">
-                        <div class="d-flex flex-row">
-                            <div class="p-2"><i class="bi bi-heart"></i></div>
-                            <div class="p-2"><i class="bi bi-chat"></i></div>
-                        </div>
-                        <?php
-                        $idx = 10;
-                        echo "<p><b>username</b> deskripsi posting</p>";
-                        // view comment masuk ke modal 
-                        echo "<p>View all 0 comments</p>";
-                        echo "<p><b>username</b> 1 top komen</p>";
-                        ?>
-                        
-                     </div>
-                </div>
-            </div>
+            <?php
+                $followQuery = mysqli_query($conn, "select * from follow where id_user = '$id'");
+                while($follow = mysqli_fetch_array($followQuery)) {
+                    $id_follow = $follow['id_follow'];
+                    $o_userQuery = mysqli_query($conn, "select * from user where id = '$id_follow'");
+                    $o_user = mysqli_fetch_array($o_userQuery);
+                    $feedQuery = mysqli_query($conn, "select * from feedpost where id_user = '$id_follow'");
+                    while($feed = mysqli_fetch_array($feedQuery)) {
+                        echo 
+                        "<div class='card' style='max-width: 35rem;'>
+                            <div class='card-header'>
+                                <div class='d-flex flex-row'>
+                                    <div class='p-2'>
+                                        <img src='assets/profile_picture/"; echo $o_user['foto']; echo"' alt='avatar' class='avatar' style='width: 25px; height: 25px;'>
+                                    </div>
+                                    <div class='p-2 flex-fill'>"; echo $o_user['nama']; echo "</div>
+                                </div>
+                            </div>
+                            <img src='assets/feed_post/"; echo $feed['foto_feedpost']; echo "' alt='blatech' class='card-img'>
+                            <div class='card-img-overlay'>
+                                <div class='card-body'>
+                                </div>
+                            </div>
+                            <div class='card-footer'>
+                                <div class='d-flex flex-column'>
+                                    <div class='d-flex flex-row'>
+                                        <div class='p-2'><i class='bi bi-heart'></i></div>
+                                        <div class='p-2'><i class='bi bi-chat'></i></div>
+                                    </div>
+                                    <p><b>"; echo $user['username']; echo "</b> "; echo $feed['description']; echo "</p>
+                                    <p>View all 0 comments</p>
+                                    <p><b>username</b> 1 top komen</p>
+                                   
+                                    
+                                </div>
+                            </div>
+                        </div>";
+                    }
+                }
+            ?>
+            
         </div>
-        <div class="col">
+        <div class="col" id="home-right">
             <div class="d-flex flex-row align-items-center">
                 <div class="p-2">
-                    <img src="assets/Ammar.jpg" alt="avatar" class="avatar" style="width: 60px;height: 60px;">
+                    <img src= "assets/profile_picture/<?php echo $user["foto"]; ?>" alt="avatar" class="avatar" style="width: 60px;height: 60px;">
                 </div>
                 <div class="p-2">
-                    <b>Username</b> <br>
-                    nama lengkap
+                    <b><?php echo $user["username"]; ?></b> <br>
+                    <?php echo $user["nama"]; ?>
                 </div>
             </div>
             <div class="d-flex flex-row align-items-center">
-                yang difollow
+                follower
             </div>
-            <div class="d-flex flex-row align-items-center">
-                <div class="p-2">
-                    <img src="assets/Ammar.jpg" alt="avatar" class="avatar" style="width: 40px;height: 40px;">
-                </div>
-                <div class="p-2">
-                    <b>Username</b> <br>
-                    nama lengkap    
-                </div>
-            </div>
-            <div class="d-flex flex-row align-items-center">
-                <div class="p-2">
-                    <img src="assets/Ammar.jpg" alt="avatar" class="avatar" style="width: 40px;height: 40px;">
-                </div>
-                <div class="p-2">
-                    <b>Username</b> <br>
-                    nama lengkap    
-                </div>
-            </div>
+            <?php
+                $followQuery = mysqli_query($conn, "select * from follow where id_follow = '$id'");
+                while($follow = mysqli_fetch_array($followQuery)) {
+                    $id_follower = $follow['id_user'];
+                    $o_userQuery = mysqli_query($conn, "select * from user where id = '$id_follower'");
+                    while($o_user = mysqli_fetch_array($o_userQuery)) {
+                        echo "<div class='d-flex flex-row align-items-center'>
+                            <div class='p-2'>
+                                <img src='assets/profile_picture/"; echo $o_user['foto']; echo "' alt='avatar' class='avatar' style='width: 40px;height: 40px;'>
+                            </div>
+                            <div class='p-2'>
+                                <b>"; echo $o_user['username']; echo "</b> <br>
+                                "; echo $o_user['nama']; echo "    
+                            </div>
+                        </div>";
+                    }
+                    
+                }
+            ?>
+            
 
         </div>
     </div>        

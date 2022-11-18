@@ -65,6 +65,18 @@ if(isset($_POST['signup'])){
 <form name="form" method="post">
 
 <table align="center" border="0">
+    <tr>
+		<td><input name='nama' type='nama' placeholder="Nama Lengkap" required
+				oninvalid="this.setCustomValidity('masukan Nama Lengkap anda disini!')" 
+				oninput="this.setCustomValidity('')" ></td>
+	</tr>
+    <br>
+	<tr>
+		<td><input name='email' type='email' placeholder="Email" required
+				oninvalid="this.setCustomValidity('masukan Email anda disini!')" 
+				oninput="this.setCustomValidity('')" ></td>
+	</tr>
+    <br>
 	<tr>
 		<td><input name='username' type='text' placeholder="Username" required
 				oninvalid="this.setCustomValidity('masukan Username anda disini!')" 
@@ -77,18 +89,7 @@ if(isset($_POST['signup'])){
 				oninput="this.setCustomValidity('')" ></td>
 	</tr>
 	<br>
-	<tr>
-		<td><input name='nama' type='nama' placeholder="Nama Lengkap" required
-				oninvalid="this.setCustomValidity('masukan Nama Lengkap anda disini!')" 
-				oninput="this.setCustomValidity('')" ></td>
-	</tr>
-    <br>
-	<tr>
-		<td><input name='email' type='email' placeholder="Email" required
-				oninvalid="this.setCustomValidity('masukan Email anda disini!')" 
-				oninput="this.setCustomValidity('')" ></td>
-	</tr>
-    <br>
+	
     <tr>
 		<td><input name='signup' type='submit' value='Signup'>|<input type="button" onclick="location.href='index.php';" value="Kembali" />
 	</tr>

@@ -1,6 +1,5 @@
 .bagianatas{
-    display: grid;
-    gap: 10px;
+    gap: 50px;
 }
 .bagianatas.profile{
     text-align: center;
@@ -11,6 +10,9 @@ header{
     display: grid;
 }
 
+.row{
+    margin-left: 350px;
+}
 .atas{
     grid-area: hero;
     min-height: 300px;
@@ -23,3 +25,10 @@ header{
     display: none;
 
 }
+
+body{
+    margin-left: auto;
+    padding-left: 260px;
+}
+
+

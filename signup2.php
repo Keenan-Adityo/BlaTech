@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'connect.php';
-include 'isSigning.php';
+//include 'isSigning.php';
 
 $username = $_SESSION['username'];
 $password = $_SESSION['password'];
@@ -13,13 +13,18 @@ $foto = $_POST['foto'];
 
 if(isset($_POST['signup'])){
 
+    $sql = "select * from user where username ='$username'";
+    $query = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_array($query);
+    $id = $row['id'];
+
 	$filename = $_FILES["foto"]["name"];
     $tempname = $_FILES["foto"]["tmp_name"];
     $folder = "./assets/profile_picture/" . $filename;
 
-    $sql = "update user set foto='$foto',bio='$bio' where username='$username' AND password='$password' AND nama='$nama' AND email='$email'" ;
+    $sql2 = "update user set foto='$foto',bio='$bio' where id='$id'";
 
-    if(mysqli_query($conn,$sql)){
+    if(mysqli_query($conn,$sql2)){
         ?>   
             <script>
             alert("Data Berhasil Dimasukan!");
@@ -44,6 +49,7 @@ if(isset($_POST['signup'])){
 ?>
 
 <html>
+<link rel="stylesheet" href="index.css">
 <head>
     <title>Blatech</title>
     <link rel="stylesheet" href="index.css">
@@ -62,7 +68,7 @@ if(isset($_POST['signup'])){
 		<td><p>Katakan Semua Tentangmu! : </p></td>
 	</tr>
 	<tr>
-		<td><textarea name="bio" id="bio" style="resize: none; width: 400px; height: 100px;"></textarea>
+		<td><textarea name="bio" id="bio" style="resize: none; width: 400px; height: 100px;" class="signup2" ></textarea>
 	</tr>
     </br>
     <tr>
@@ -70,7 +76,7 @@ if(isset($_POST['signup'])){
 	</tr>
     <tr>
 	<tr>
-		<td><input name='file' type='file'></td>
+		<td><input name='file' type='file' class="signup2"></td>
 	</tr>
 	<br>
     <tr>

@@ -75,5 +75,21 @@ color: #fff;
   margin-left: 60px;
 }
 
+.signup2{
+  size: auto;
+  border: 2px solid black;
+  border-radius: 10px 10px;
+  padding : 5px;
+  margin-left: 60px;
+}
+
+.signupkembali{
+  size: auto;
+  border: 2px solid black;
+  border-radius: 10px 10px;
+  text-align: center;
+}
+
+
 
 

@@ -63,35 +63,36 @@ if(isset($_POST['signup'])){
     </div>
 <img src="./assets/logo.png"  width="200px" height="200px" style=" display: block; margin-left: auto;margin-right: auto;" >
 <form name="form" method="post">
-
 <table align="center" border="0">
     <tr>
-		<td><input name='nama' type='nama' placeholder="Nama Lengkap" required
+		<td><input name='nama' type='nama' placeholder="Nama Lengkap" class="signup2" required 
 				oninvalid="this.setCustomValidity('masukan Nama Lengkap anda disini!')" 
 				oninput="this.setCustomValidity('')" ></td>
 	</tr>
     <br>
 	<tr>
-		<td><input name='email' type='email' placeholder="Email" required
+		<td><input name='email' type='email' placeholder="Email" class="signup2" required
 				oninvalid="this.setCustomValidity('masukan Email anda disini!')" 
 				oninput="this.setCustomValidity('')" ></td>
 	</tr>
     <br>
 	<tr>
-		<td><input name='username' type='text' placeholder="Username" required
+		<td><input name='username' type='text' placeholder="Username" class="signup2" required
 				oninvalid="this.setCustomValidity('masukan Username anda disini!')" 
 				oninput="this.setCustomValidity('')" ></td>
 	</tr>
 	<br>
 	<tr>
-		<td><input name='password' type='password' placeholder="Password" required
+		<td><input name='password' type='password' placeholder="Password" class="signup2" required
 				oninvalid="this.setCustomValidity('masukan password anda disini!')" 
 				oninput="this.setCustomValidity('')" ></td>
 	</tr>
 	<br>
 	
     <tr>
-		<td><input name='signup' type='submit' value='Signup'>|<input type="button" onclick="location.href='index.php';" value="Kembali" />
+		<td><input name='signup' type='submit' value='Signup'style="border: 2px solid black;
+  border-radius: 10px 10px;" >|<input type="button" onclick="location.href='index.php';" value="Kembali" style="border: 2px solid black;
+  border-radius: 10px 10px;" />
 	</tr>
 </table>
 </body>

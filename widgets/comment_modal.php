@@ -19,7 +19,6 @@ function commentModal($id, $name, $pfp, $post, $description) {
                               <div class='p-2'><button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button></div>
                           </div>
                           <div style='overflow-y: scroll; height:350px;'>
-                          
                           </div>
                           <div class='p-2'>
                               <div class='d-flex flex-row'>

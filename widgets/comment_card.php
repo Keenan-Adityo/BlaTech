@@ -1,7 +1,12 @@
 <?php
 include "comment_modal.php";
+include "./connect.php";
 
 function commentCard($id, $name, $pfp, $post, $description) {
+    global $conn;
+    $commCountQ = mysqli_query($conn, "select count(*) from comment where id_feedpost = '$id'");
+    $commCount = mysqli_fetch_array($commCountQ);
+    $count = $commCount['COUNT(*)'];
     echo "
     <div class='card' style='max-width: 35rem;'>  
         <div class='card-header'>
@@ -32,7 +37,7 @@ function commentCard($id, $name, $pfp, $post, $description) {
                     </div>
                 </div>
                 <p><b>".  $name .  "</b> ".  $description .  "</p>
-                <p>View all 0 comments</p>
+                <p>View all ". $commCount[0] ." comments</p>
                 <p><b>username</b> 1 top komen</p>
             </div>
         </div>

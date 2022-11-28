@@ -2,16 +2,11 @@
     session_start();
     include 'widgets/navigation.php';
     include 'widgets/comment_card.php';
-    // include 'includes/comment_modal.php';
     include 'isLogged.php';
     include 'connect.php';
     $id = $_SESSION['id'];
     $userQuery = mysqli_query($conn, "select * from user where id = '$id'");
     $user = mysqli_fetch_array($userQuery);
-    // cek follow
-    
-    // cek postnya follow tampilin
-    // if(isset($_POST))
 ?>
 
 <html lang="en">
@@ -27,8 +22,6 @@
 </head>
 <body>
    <!-- Button trigger modal -->
-
-
     <div class="row">
         <div class="col">
             <?php
@@ -40,11 +33,9 @@
                     $feedQuery = mysqli_query($conn, "select * from feedpost where id_user = '$id_follow'");
                     while($feed = mysqli_fetch_array($feedQuery)) {
                         commentCard($feed['id_feedpost'], $o_user['nama'], $o_user['foto'], $feed['foto_feedpost'], $feed['description']);
-                        // echo $card->run();
                     }
                 }
             ?>
-            
         </div>
         <div class="col" id="home-right">
             <div class="d-flex flex-row align-items-center">
@@ -78,8 +69,6 @@
                     
                 }
             ?>
-            
-
         </div>
     </div>        
 </body>

@@ -10,6 +10,11 @@ $nama = $_SESSION['nama'];
 $email = $_SESSION['email'];
 $bio = $_POST['bio'];
 $foto = $_POST['foto'];
+
+$filename = $_FILES["foto"]["name"];
+$tempname = $_FILES["foto"]["tmp_name"];
+$folder = "./assets/profile_picture/" . $filename;
+
 $sql="update user set username='$username', nama='$nama', foto='$foto',bio='$bio' where id='$id'";
 $id2= $row['id'];
 
@@ -32,22 +37,19 @@ if(isset($_POST['simpan'])){
 <form name="form" method="post">
 <table align="center" border="0">
 <tr>
-		<td><p>Username : </p></td>
-	</tr>
-	<tr>
-		<td><textarea name="username" id="username" style="resize: none; width: 400px; height: 100px;" class="editprofile" ></textarea>
-	</tr>
-    <tr>
-		<td><p>Nama : </p></td>
-	</tr>
-	<tr>
-		<td><textarea name="nama" id="nama" style="resize: none; width: 400px; height: 100px;" class="editprofile" ></textarea>
+		<td>Username</td>
+        <td>:</td>
+        <td><input type="text" name="username" id="username"  class="editprofile" ></input></td>
 	</tr>
     <tr>
-		<td><p>Bio : </p></td>
+		<td>Nama</td>
+        <td>:</td>
+        <td><input name="nama" id="nama" class="editprofile" ></input>
 	</tr>
-	<tr>
-		<td><textarea name="bio" id="bio" style="resize: none; width: 400px; height: 100px;" class="editprofile" ></textarea>
+    <tr>
+		<td>Bio</td>
+        <td>:</td>
+        <td><textarea name="bio" id="bio" maxlength="100" class="editprofile" ></textarea></td>
 	</tr>
     </br>
     <tr>

@@ -37,11 +37,13 @@ $id = $_SESSION['id'];
                 <p class="mb-2 pb-1" style="color: #2b2a2a;"><?php echo $user["bio"]; ?></p>
                 <?php
                 $ini = mysqli_query($conn, "select * from user where id = '$id'");
-                if($usernini = mysqli_fetch_array($ini)){
-                    echo"<div class='editprofile d-flex pt-1'>
-                    <button type='button' class='edit btn-primary flex-grow-1'>Edit Profile</button>
-                  </div>";
-                
+                if($userini = mysqli_fetch_array($ini)){
+                  ?>
+                  
+                    <div class="editprofile d-flex pt-1">
+                    <button class="edit flex-grow-1"><a class="kangedit" href="editprofile.php" style="text-decoration: none; color:black;">Edit Profile</a></button>
+                  </div>
+                <?PHP
                 }else{
                     echo"
                     <div class='follow d-flex pt-1'>

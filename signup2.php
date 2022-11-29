@@ -57,8 +57,8 @@ if(isset($_POST['signup'])){
 <body>
 <div class="wrapper">
     <div class="get">
-        <p id="p1" > <b>BlaTech</b><br>Cari sekarang juga.</p>
-        <p id="p2"><input type="submit" value="Dapatkan"></p>
+        <p id="p1" > <b>BlaTech</b><br>We Bring The Tech To Blater!</p>
+        <p id="p2"><button><a target="_blank" href="https://www.google.com/search?q=fakultas%20teknik%20unsoed&rlz=1C1VDKB_enID1027ID1027&sxsrf=ALiCzsbZ-sLA6paxEQWlX8gcfJfjB2pnzA:1669708517354&ei=4bqFY4jIN4-uz7sPgYqh8Ao&ved=2ahUKEwiPjrj49NL7AhV5ILcAHb0bDccQvS56BAgjEAE&uact=5&oq=fakultas+teknik+unsoed&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIICAAQgAQQywEyBQgAEIAEMgUIABCABDIOCC4QgAQQxwEQrwEQywEyBggAEBYQHjIGCAAQFhAeMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeMgYIABAWEB46CggAEEcQ1gQQsAM6BwgAELADEEM6DQgAEOQCENYEELADGAE6DAguEMgDELADEEMYAjoSCC4QxwEQrwEQyAMQsAMQQxgCOg8ILhDUAhDIAxCwAxBDGAI6BAgAEEM6BAguEEM6CgguEMcBEK8BEEM6CwguEIAEEMcBEK8BOgUILhCABEoECEEYAEoECEYYAVDGAljxCmC7C2gBcAF4AIABmAGIAdAFkgEDMS41mAEAoAEByAETwAEB2gEGCAEQARgJ2gEGCAIQARgI&sclient=gws-wiz-serp&tbs=lf:1,lf_ui:2&tbm=lcl&rflfq=1&num=10&rldimm=12606058844528550128&lqi=ChZmYWt1bHRhcyB0ZWtuaWsgdW5zb2VkSMCSzO_6lYCACFoqEAAQARgAGAEYAiIWZmFrdWx0YXMgdGVrbmlrIHVuc29lZCoGCAIQABABkgEVdW5pdmVyc2l0eV9kZXBhcnRtZW50&sa=X&rlst=f#rlfi=hd:;si:12606058844528550128,l,ChZmYWt1bHRhcyB0ZWtuaWsgdW5zb2VkSMCSzO_6lYCACFoqEAAQARgAGAEYAiIWZmFrdWx0YXMgdGVrbmlrIHVuc29lZCoGCAIQABABkgEVdW5pdmVyc2l0eV9kZXBhcnRtZW50;mv:[[-7.4285981,109.33763],[-7.4299303000000005,109.33626059999999]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:2">Find Us!</a></button></p>
     </div>
 <form name="form" method="post">
 
@@ -80,7 +80,9 @@ if(isset($_POST['signup'])){
 	</tr>
 	<br>
     <tr>
-		<td><input name='signup' type='submit' value='Sign Up!' align="center">|<input type="button" onclick="location.href='index.php';" value="Lewati" />
+		<td><input name='signup' type='submit' value='Sign Up!' align="center" style="border: 2px solid black;
+  border-radius: 10px 10px;"> | <input type="button" onclick="location.href='index.php';" value="Lewati" style="border: 2px solid black;
+  border-radius: 10px 10px;"/>
 	</tr>
 </table>
 </form>

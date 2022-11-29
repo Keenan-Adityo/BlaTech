@@ -48,24 +48,40 @@
                 </div>
             </div>
             <div class="d-flex flex-row align-items-center">
-                follower
+                <p class='kGrey'>Suggestions For You</p>
             </div>
             <?php
-                $followQuery = mysqli_query($conn, "select * from follow where id_follow = '$id'");
-                while($follow = mysqli_fetch_array($followQuery)) {
-                    $id_follower = $follow['id_user'];
-                    $o_userQuery = mysqli_query($conn, "select * from user where id = '$id_follower'");
-                    while($o_user = mysqli_fetch_array($o_userQuery)) {
+                $counter = 0;
+                $suggestQ = mysqli_query($conn, "select * from user");
+                while($suggest = mysqli_fetch_array($suggestQ)) {
+                    if($counter == 5) break;
+                    $followQuery = mysqli_query($conn, "select * from follow where id_user = '$id' and id_follow='". $suggest['id'] ."'");
+                    if(!$follow = mysqli_fetch_array($followQuery)) {
+                        $counter++;
                         echo "<div class='d-flex flex-row align-items-center'>
                             <div class='p-2'>
-                                <img src='assets/profile_picture/"; echo $o_user['foto']; echo "' alt='avatar' class='avatar' style='width: 40px;height: 40px;'>
+                                <img src='assets/profile_picture/" . $suggest['foto'] . "' alt='avatar' class='avatar' style='width: 40px;height: 40px;'>
                             </div>
                             <div class='p-2'>
-                                <b>"; echo $o_user['username']; echo "</b> <br>
-                                "; echo $o_user['nama']; echo "    
+                            <table>
+                                <tr>
+                                    <td>
+                                        <b>" . $suggest['username'] . "</b> <br>
+                                    </td>
+                                    <td rowspan='2'>
+                                        <div class='suggestf'>Follow</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class='suggestfn'>" . $suggest['nama'] . "</div>     
+                                    </td>
+                                </tr>
+                            </table>
                             </div>
                         </div>";
-                    }
+                    } 
+                   
                     
                 }
             ?>

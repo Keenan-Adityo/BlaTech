@@ -13,7 +13,7 @@ function postCard($id, $name, $pfp, $post, $description) {
                 <div class='p-2'>
                     <img src='assets/profile_picture/".  $pfp . "' alt='avatar' class='avatar' style='width: 25px; height: 25px;'>
                 </div>
-                <div class='p-2 flex-fill'>".  $name.  "</div>
+                <div class='p-2 flex-fill'><a href='./profile.php' class='hrefblack'><b>".  $name.  "</b></a></div>
             </div>
         </div>
         <div class='card-body'>
@@ -36,8 +36,9 @@ function postCard($id, $name, $pfp, $post, $description) {
                     </div>
                 </div>
                 <p><b>".  $name .  "</b> ".  $description .  "</p>
-                <p>View all ". $commCount[0] ." comments</p>
-                <p><b>username</b> 1 top komen</p>
+                <p><button type='button' class='btn text-start' data-bs-toggle='modal' data-bs-target='#comment_". $id. "'>
+                    View all ". $commCount[0] ." comments
+                </button></p>
             </div>
         </div>
     </div>";

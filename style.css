@@ -67,6 +67,27 @@ body {
   width: 100px;
   height: 100px;
 }
+
+.hrefblack {
+  text-decoration: none;
+  color: black;
+}
+
+.kGrey {
+  color: #969696;
+}
+
+.suggestf {
+  text-decoration: none;
+  color: blue;
+  text-align: center;
+}
+
+.suggestfn {
+  color: #969696;
+  font-size: x-small;
+} 
+
 /* post */
  /* .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0,2);
@@ -80,3 +101,4 @@ body {
 .container {
   padding: 2px 16px;
 }  */
+

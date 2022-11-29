@@ -40,6 +40,7 @@ function postModal($id, $name, $pfp, $post, $description) {
                           </div>
                           <div class='p-2'>
                               <input type='text' name='komen'>
+                              <input type='submit' value='comment'>
                           </div>
                       </div>
                   </div>

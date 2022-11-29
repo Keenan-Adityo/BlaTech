@@ -18,38 +18,7 @@ if($id = $_SESSION['id']){
 
 ?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-<!-- <form name="form" method="post">
-<table align="center" border="0">
-<tr>
-		<td>Username</td>
-        <td>:</td>
-        <td><input type="text" name="username2" id="username2"  class="editprofile" value="<?PHP echo$data['username'] ?>"></input></td>
-	</tr>
-    <tr>
-		<td>Nama</td>
-        <td>:</td>
-        <td><input name="nama2" id="nama2" class="editprofile" value="<?PHP echo$data['nama'] ?>"></input>
-	</tr>
-    <tr>
-		<td>Bio</td>
-        <td>:</td>
-        <td><input name="bio2" id="bio2" maxlength="100" class="editprofile" value="<?PHP echo$data['bio'] ?>"></input></td>
-	</tr>
-    </br>
-    <tr>
-		<td><p>Profpict : </p></td>
-	</tr>
-    <tr>
-	<tr>
-		<td><input name='file' type='file' class="editprofile"></td>
-	</tr>
-	<br>
-    <tr>
-		<td><input name='simpan' type='submit' value='Simpan' align="center">|<input type="button" onclick="location.href='Profile.php';" value="Kembali" />
-	</tr>
-</table>
-
-</form> -->
+<body>
 <form class="" name="form" method="post" >
   <div class="form-row">
     <div class="col-md-4 mb-3">
@@ -82,6 +51,7 @@ if($id = $_SESSION['id']){
   </div>
   <input class="btn btn-primary" type="submit" name="simpan" value="Simpan"></input> <input  class="btn btn-primary" type="button" onclick="location.href='Profile.php';" value="Kembali" />
 </form>
+</body>
 <?php
 if($_POST['simpan']){
 	$username = ($_POST['username2']);
@@ -93,3 +63,10 @@ if($_POST['simpan']){
 	header("location: profile.php");
 }
 ?>
+
+<style>
+  body{
+    padding-top: 50px;
+    padding-left: 50px;
+  }
+</style>

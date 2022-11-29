@@ -4,11 +4,12 @@ include 'connect.php';
 
 $username = $_POST['username'];
 $password = $_POST['password'];
+$password2 = $_POST['konfirmasiPass'];
 $email = $_POST['email'];
 $nama = $_POST['nama'];
 
 if(isset($_POST['signup'])){
-    
+    if($password == $password2){
     $sql = "select * from user where username ='$username'";
     $query = mysqli_query($conn,$sql);
     $row = mysqli_fetch_array($query);
@@ -38,13 +39,10 @@ if(isset($_POST['signup'])){
         </script>
     <?php
 
-    }
-
-
-    
-
-
-    
+    }   
+}else{
+ 
+}
 }
 ?>
 <html>
@@ -78,7 +76,7 @@ if(isset($_POST['signup'])){
 	</tr>
     <br>
 	<tr>
-		<td><input name='username' type='text' placeholder="Username" class="signup2" required
+		<td><input name='username' type='' placeholder="Username" class="signup2" required
 				oninvalid="this.setCustomValidity('masukan Username anda disini!')" 
 				oninput="this.setCustomValidity('')" ></td>
 	</tr>
@@ -86,6 +84,11 @@ if(isset($_POST['signup'])){
 	<tr>
 		<td><input name='password' type='password' placeholder="Password" class="signup2" required
 				oninvalid="this.setCustomValidity('masukan password anda disini!')" 
+				oninput="this.setCustomValidity('')" ></td>
+	</tr>
+    <tr>
+		<td><input name='konfirmasiPass' type='password' placeholder="Konfirmasi Password" class="signup2" required
+				oninvalid="this.setCustomValidity('Konfrimasi password anda disini!')" 
 				oninput="this.setCustomValidity('')" ></td>
 	</tr>
 	<br>

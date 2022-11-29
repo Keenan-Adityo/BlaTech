@@ -21,8 +21,9 @@ if(isset($_POST['signup'])){
 	$filename = $_FILES["foto"]["name"];
     $tempname = $_FILES["foto"]["tmp_name"];
     $folder = "./assets/profile_picture/" . $filename;
+    move_uploaded_file($tempname,$folder);
 
-    $sql2 = "update user set foto='$foto',bio='$bio' where id='$id'";
+    $sql2 = "update user set foto='$filename',bio='$bio' where id='$id'";
 
     if(mysqli_query($conn,$sql2)){
         ?>   

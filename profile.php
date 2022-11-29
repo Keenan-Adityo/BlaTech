@@ -13,6 +13,12 @@ $id = $_SESSION['id'];
     while($follow = mysqli_fetch_array($followQuery)) {
       $id_follow = $follow['id_follow'];
     }
+
+    $followingya = mysqli_query($conn, "select count(*) from follow where id_user = '$id'");
+    $following = mysqli_fetch_array($followingya);
+
+    $followerya = mysqli_query($conn, "select count(*) from follow where id_follow = '$id'");
+    $follower = mysqli_fetch_array($followerya);
 ?>
 <link rel="stylesheet" href="profile.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -22,7 +28,7 @@ $id = $_SESSION['id'];
 <div class="bagianprofile">
             <div class="bagianatas d-flex">
               <div class="bagianfoto">
-                    <?PHP echo"<img src= 'assets/profile_picture/" ; echo $user['foto'];  echo "' width='200px' height='200px' >"?>
+                    <?PHP echo"<img src= 'assets/profile_picture/" ; echo $user['foto'];  echo "'class='avatar' width='200px' height='200px' >"?>
               </div>
               <section class="palingatas">
                   
@@ -32,12 +38,15 @@ $id = $_SESSION['id'];
                   ?>
                     <div class="editprofile" style="display:flex;">
                     <h2 class="usernamenyaini" style="margin-right: 50px;"><?php echo $user['username']?></h2>
-                    <button class="edit" style="border-radius=50px"><a class="kangedit" href="editprofile.php" style="text-decoration: none; color:black;">Edit Profile</a></button>
+                    <button class="edit"><a class="kangedit" href="editprofile.php" style="text-decoration: none; color:black;">Edit Profile</a></button>
                   </div>
                 <?PHP
                 }else{
+                  $idorang = $_GET['id'];
+                  $follow = mysqli_query($conn,"select * from user where id = $idorang");
                   ?>
                   <div class='follow d-flex pt-1'>
+                    <h2><?PHP ?></h2>
                   <button type='button' class='follow btn-primary flex-grow-1'>Follow</button>
                 </div>
                   <?PHP                   
@@ -51,12 +60,12 @@ $id = $_SESSION['id'];
                   </li>
                   <li class="followingutama">
                     <div class="following2">
-                      <span class="following"> 4 <span>Following 
+                      <span class="following"> <?PHP echo"$following[0]" ?> <span>Following 
                     </div>
                   </li>
                   <li class="followersutama">
                     <div class="followers2">
-                      <span class="followers"> 4 <span>Follower 
+                      <span class="followers"> <?PHP echo"$follower[0]" ?> <span>Follower 
                     </div>
                     </li>
                 </ul>
@@ -88,8 +97,25 @@ $id = $_SESSION['id'];
               li{
                 margin-right: 40px;
               }
-
               
+              .avatar {
+              width: 200px;
+              height: 200px;
+              vertical-align: middle;
+              border-radius: 50%;
+              }
+              .edit {
+              font-size: 14px;
+              font-weight: bold;
+              vertical-align: middle;
+              border-radius: 10%;
+                }
+              
+                body{
+                margin-left: auto;
+                padding-left: 300px;
+                text-decoration: none;
+}
             </style>
           
     <div class="container text-center">

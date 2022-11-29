@@ -1,12 +1,11 @@
 <?php
-include "comment_modal.php";
+include "post_modal.php";
 include "./connect.php";
 
-function commentCard($id, $name, $pfp, $post, $description) {
+function postCard($id, $name, $pfp, $post, $description) {
     global $conn;
     $commCountQ = mysqli_query($conn, "select count(*) from comment where id_feedpost = '$id'");
     $commCount = mysqli_fetch_array($commCountQ);
-    $count = $commCount['COUNT(*)'];
     echo "
     <div class='card' style='max-width: 35rem;'>  
         <div class='card-header'>
@@ -33,7 +32,7 @@ function commentCard($id, $name, $pfp, $post, $description) {
                             <i class='bi bi-chat'>
                             </i>
                         </button>
-                        ". commentModal($id, $name, $pfp, $post, $description) ."
+                        ". postModal($id, $name, $pfp, $post, $description) ."
                     </div>
                 </div>
                 <p><b>".  $name .  "</b> ".  $description .  "</p>

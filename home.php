@@ -1,7 +1,7 @@
 <?php 
     session_start();
     include 'widgets/navigation.php';
-    include 'widgets/comment_card.php';
+    include 'widgets/post_card.php';
     include 'isLogged.php';
     include 'connect.php';
     $id = $_SESSION['id'];
@@ -32,7 +32,7 @@
                     $o_user = mysqli_fetch_array($o_userQuery);
                     $feedQuery = mysqli_query($conn, "select * from feedpost where id_user = '$id_follow'");
                     while($feed = mysqli_fetch_array($feedQuery)) {
-                        commentCard($feed['id_feedpost'], $o_user['nama'], $o_user['foto'], $feed['foto_feedpost'], $feed['description']);
+                        postCard($feed['id_feedpost'], $o_user['nama'], $o_user['foto'], $feed['foto_feedpost'], $feed['description']);
                     }
                 }
             ?>

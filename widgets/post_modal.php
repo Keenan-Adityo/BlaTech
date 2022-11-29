@@ -1,5 +1,9 @@
 <?php
-function commentModal($id, $name, $pfp, $post, $description) {
+include "./connect.php";
+function postModal($id, $name, $pfp, $post, $description) {
+    global $conn;
+    $commentQ = mysqli_query($conn, "select * from comment where id_feedpost = '$id'");
+    
     echo "
     <div class='modal fade modal-xl' id='comment_". $id. "' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
       <div class='modal-dialog modal-dialog-centered'>
@@ -19,6 +23,11 @@ function commentModal($id, $name, $pfp, $post, $description) {
                               <div class='p-2'><button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button></div>
                           </div>
                           <div style='overflow-y: scroll; height:350px;'>
+                           ";
+                            while($comment = mysqli_fetch_array($commentQ)) {
+                                commentCard($comment['id_user'], $comment['comment']);
+                            } 
+                            echo " 
                           </div>
                           <div class='p-2'>
                               <div class='d-flex flex-row'>
@@ -39,5 +48,13 @@ function commentModal($id, $name, $pfp, $post, $description) {
           </div>
       </div>
   </div>";
+}
+
+function commentCard($id, $comment) {
+    global $conn;
+    $userQuery = mysqli_query($conn, "select * from user where id = '$id'");
+    $user = mysqli_fetch_array($userQuery);
+     
+    echo "<p><b>". $user['username'] . "</b> $comment</p>";
 }
 ?>

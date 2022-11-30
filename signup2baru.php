@@ -1,30 +1,51 @@
 <?php
 session_start();
 include 'connect.php';
+//include 'isSigning.php';
 
-$_SESSION['login']=false;
+$_SESSION['username'] = "bambang";
+$username = $_SESSION['username'];
+$password = $_SESSION['password'];
+$nama = $_SESSION['nama'];
+$email = $_SESSION['email'];
+$bio = $_POST['bio'];
+$foto = $_POST['foto'];
 
-$username = $_POST['username'];
-$password = $_POST['password'];
-$login =$_POST['login'];
 
-$sql = "SELECT * FROM `user` WHERE username='$username' and password='$password'";
-$query = mysqli_query($conn,$sql);
-$row = mysqli_fetch_array($query);
+if(isset($_POST['signup'])){
 
-if(isset($_POST['login'])){
-	if($row['username']==$username && $row['password']==$password){
-		$_SESSION['id'] = $row['id'];
+    $sql = "select * from user where username ='$username'";
+    $query = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_array($query);
+    $id = $row['id'];
 
-		?>
-		<script> alert("Berhasil login"); document.location='home.php';</script>
-		<?php
-		$_SESSION['login'] = true;
-	}else{
-			?>
-		<script> alert("Password atau Username Salah!"); document.location='index.php';</script>
-		<?php
-	}
+	$filename = $_FILES["foto"]["name"];
+    $tempname = $_FILES["foto"]["tmp_name"];
+    $folder = "./assets/profile_picture/" . $filename;
+    move_uploaded_file($tempname,$folder);
+
+    $sql2 = "update user set foto='$filename',bio='$bio' where id='$id'";
+
+    if(mysqli_query($conn,$sql2)){
+        ?>   
+            <script>
+            alert("Data Berhasil Dimasukan!");
+            document.location="index.php";
+            </script>
+        <?php
+            session_destroy();
+    }else{
+        
+         ?>
+        <script>
+            alert("data yang anda masukan salah");
+            document.location="signup.php";
+        </script>
+        <?php
+        session_destroy();
+    }
+      
+    
 }
 
 ?>
@@ -39,40 +60,30 @@ if(isset($_POST['login'])){
 <body>
 
 <div class="pt-5">
-<h1 class="text-center">Selamat Datang!</h1>
+<h1 class="text-center">Hi , <?echo "$username;" ;?></h1>
 <div class="container">
 <div class="row">
 <div class="col-md-5 mx-auto">
 <div class="card card-body">
     <img src="assets/logo.png" width="200" length="200" style="margin : auto">
     <form id="submitForm" name="form" method="post">
-        <lSabel for="username">Username</lSabel>
-        <input name='username' type='text' placeholder="username" class="form-control" required
-				oninvalid="this.setCustomValidity('masukan Username anda disini!')" 
-				oninput="this.setCustomValidity('')" 
-				class="input">
-       
-        <div class="form-group required">
+    <div class="form-group required">
             <label class="d-flex flex-row align-items-center" for="password">Password</label>
         <input name='password' type='password' placeholder="password" class="form-control" required
 			    oninvalid="this.setCustomValidity('masukan Password anda disini!')" 
 			    oninput="this.setCustomValidity('')" 
 			    class="input">
         </div>
-        <div class="form-group mt-4 mb-4">
-        <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me" data-parsley-multiple="remember-me">
-            <label class="custom-control-label" for="remember-me">Remember me?</label>
+    <div class="form-group required">
+            <label class="d-flex flex-row align-items-center" for="password">Upload Foto Terbaik Mu</label>
+            <input name='file' type='file' class="signup2">
         </div>
-        </div>
+
 
 <div class="form-group pt-1">
 <input name='login' type='submit' value='Log in' class="login" class="btn btn-primary btn-block">
 </div>
 </form>
-<p class="small-xl pt-3 text-center">
-<span class="text-muted">Belum punya akun di Blatech?</span>
-<a href="signup.php">Daftar!</a>
 </p>
 </div>
 </div>

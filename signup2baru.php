@@ -8,8 +8,6 @@ $password = $_SESSION['password'];
 $nama = $_SESSION['nama'];
 $email = $_SESSION['email'];
 $bio = $_POST['bio'];
-$foto = $_FILES['foto']['name'];
-
 
 if(isset($_POST['signup'])){
 
@@ -20,10 +18,10 @@ if(isset($_POST['signup'])){
 
     $filename = $_FILES["foto"]["name"];
     $tempname = $_FILES["foto"]["tmp_name"];
-    $folder = "./assets/profile_picture/".$filename;
+    $folder = "./assets/profile_picture/". $filename;
     move_uploaded_file($tempname,$folder);
 
-    $sql2 = "update user set foto='$filename',bio='$bio' where id='$id'";
+    $sql2 = "UPDATE `user` SET `bio` = '$bio', `foto` = '$filename' WHERE `user`.`id` = $id";
 
     if(mysqli_query($conn,$sql2)){
         ?>   

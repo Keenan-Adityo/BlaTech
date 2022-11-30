@@ -72,7 +72,7 @@ if(isset($_POST['login'])){
 </form>
 <p class="small-xl pt-3 text-center">
 <span class="text-muted">Belum punya akun di Blatech?</span>
-<a href="signup.php">Daftar!</a>
+<a href="signupbaru.php">Daftar!</a>
 </p>
 </div>
 </div>

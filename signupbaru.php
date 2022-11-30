@@ -39,8 +39,15 @@ if(isset($_POST['login'])){
         </script>
     <?php
 
-    }   
-}
+    }
+    }else{
+        ?>
+        <script>
+            alert("Konfirmasi Password Mungkin Salah");
+            document.location="signupbaru.php";
+        </script>
+    <?php
+    }
 }
 ?>
 
@@ -60,7 +67,7 @@ if(isset($_POST['login'])){
 <div class="col-md-5 mx-auto">
 <div class="card card-body">
     <img src="assets/logo.png" width="200" length="200" style="margin : auto">
-    <form name="form" method="post">
+    <form name="form" method="post" enctype="multipart/form-data">
         <lSabel for="username">Nama Lengkap</lSabel>
         <input name='nama' type='text' placeholder="Nama Lengkap" class="form-control" required
 				oninvalid="this.setCustomValidity('masukan Nama Lengkap anda disini!')" 

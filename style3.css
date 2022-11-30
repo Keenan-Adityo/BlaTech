@@ -1,0 +1,35 @@
+body{
+  background: #5a3f2f !important;
+  font-family: 'Muli', sans-serif;
+  
+}
+h1{
+  color: #fff;
+  padding-bottom: 2rem;
+  font-weight: bold;
+}
+a{
+  color: #333;
+}
+a:hover{
+  color: #5a3f2f;
+  text-decoration: none;
+}
+.form-control:focus {
+
+    color: #000;
+    background-color: #fff;
+    border:2px solid #5a3f2f;
+    outline: 0;
+    box-shadow: none;
+
+}
+
+.btn{
+  background: #5a3f2f;
+  border: #5a3f2f;
+}
+.btn:hover {
+  background: #5a3f2f;
+  border: #5a3f2f;
+}

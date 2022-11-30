@@ -63,7 +63,7 @@ if(isset($_POST['signup'])){
 <div class="col-md-5 mx-auto">
 <div class="card card-body">
     <img src="assets/logo.png" width="200" length="200" style="margin : auto">
-    <form id="form" name="form" method="post">
+    <form id="form" name="form" method="post" enctype='multipart/form-data'>
     <div class="form-group required">
             <label class="d-flex flex-row align-items-center" for="password">Katakan Semua Tentangmu! : </label>
             <textarea name="bio" id="bio" style="resize: none; width: 400px; height: 200px;" class="signup2" ></textarea>

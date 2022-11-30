@@ -7,6 +7,7 @@ include 'connect.php';
 include 'widgets/navigation.php';
 include 'widgets/post_card.php';
 include 'widgets/create_post_modal.php';
+
 $id = $_SESSION['id'];
     $sql ="select * from user where id = '$id'";
 	$query = mysqli_query($conn,$sql);
@@ -87,7 +88,9 @@ $id = $_SESSION['id'];
                 margin-bottom: 50px;
                 border-radius: 50px;
               }
-              
+              .bagianprofile{
+                align-items: center
+              }
 
               ul {
                 list-style-type: none;
@@ -120,21 +123,27 @@ $id = $_SESSION['id'];
                 margin-left: auto;
                 padding-left: 300px;
                 text-decoration: none;
-}
+                }
+                
+                .postingan{
+                  width: 300px; 
+                  height: 300px;
+                }   
             </style>
           
     <div class="container text-center">
         <div class="row row-cols-auto">
             <?php
 
-            $sql3= "select*from feedpost where id_user=$id ";
+            $sql3= "select*from feedpost where id_user=$id";
             $query = mysqli_query($conn, $sql3);
             while($hasilpost = mysqli_fetch_array ($query)){
-            echo"<img src= 'assets/feed_post/" ; echo $hasilpost['foto_feedpost'];  echo "'class='post' width='100px' height='200px' >";
+            echo"<img src= 'assets/feed_post/" ; echo $hasilpost['foto_feedpost'];  echo "'class='postingan' >";
             }
             ?>
             
-            </div>
+            </div >
+
     </div>
 </div>
             </div>

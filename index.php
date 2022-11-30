@@ -15,7 +15,8 @@ $row = mysqli_fetch_array($query);
 if(isset($_POST['login'])){
 	if($row['username']==$username && $row['password']==$password){
 		$_SESSION['id'] = $row['id'];
-
+    $_SESSION['pfp'] = $row['foto'];
+    $_SESSION['username'] = $row['username'];
 		?>
 		<script> alert("Berhasil login"); document.location='home.php';</script>
 		<?php
@@ -67,7 +68,7 @@ if(isset($_POST['login'])){
         </div>
 
 <div class="form-group pt-1">
-<input name='login' type='submit' value='Log in' class="login" class="btn btn-primary btn-block">
+<input name='login' type='submit' value='Log in' class="btn btn-primary" class="btn btn-primary btn-block">
 </div>
 </form>
 <p class="small-xl pt-3 text-center">

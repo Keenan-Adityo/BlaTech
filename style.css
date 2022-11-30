@@ -1,7 +1,7 @@
 /* navigation */
 body {
   font-family: "Lato", sans-serif;
-  background-color: #fafafa !important;
+  background-color: #fafafa;
 }
 
 .sidenav {
@@ -22,7 +22,7 @@ body {
 .sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 30px;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -75,6 +75,7 @@ body {
 .hrefblue {
   text-decoration: none;
   color: blue;
+  font-size: small;
 }
 
 .kGrey {
@@ -93,6 +94,20 @@ body {
 } 
 .commentSection::-webkit-scrollbar {
   display: none;
+}
+
+textarea {
+  width: 275px;
+  height: 150px;
+  
+}
+
+/* .card-footer {
+  background-color: white;
+} */
+
+.card-header {
+  background-color: white;
 }
 
 /* post */

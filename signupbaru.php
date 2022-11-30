@@ -108,9 +108,7 @@ if(isset($_POST['login'])){
         
 
 <div class="form-group pt-1">
-<input name='login' type='submit' value='Mendaftar'style="border: 2px solid black;
-  border-radius: 10px 10px;" > | <input type="button" onclick="location.href='index.php';" value="Kembali" style="border: 2px solid black;
-  border-radius: 10px 10px;" />
+<input name='login' type='submit' value='Mendaftar'class="btn btn-primary"> | <input type="button" onclick="location.href='index.php';" value="Kembali" class="btn btn-primary"/>
 </div>
 </form>
 </div>

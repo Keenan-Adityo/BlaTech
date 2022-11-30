@@ -31,14 +31,22 @@
     <div class="row">
         <div class="col">
             <?php
-                $followQuery = mysqli_query($conn, "select * from follow where id_user = '$id'");
-                while($follow = mysqli_fetch_array($followQuery)) {
-                    $id_follow = $follow['id_follow'];
-                    $o_userQuery = mysqli_query($conn, "select * from user where id = '$id_follow'");
-                    $o_user = mysqli_fetch_array($o_userQuery);
-                    $feedQuery = mysqli_query($conn, "select * from feedpost where id_user = '$id_follow'");
-                    while($feed = mysqli_fetch_array($feedQuery)) {
-                        postCard($feed['id_feedpost'], $o_user['nama'], $o_user['foto'], $feed['foto_feedpost'], $feed['description']);
+                $feedQuery = mysqli_query($conn, "select * from feedpost order by id_feedpost desc");
+                
+                while($feed = mysqli_fetch_array($feedQuery)) {
+                    if($id == $feed['id_user']) {
+                        postCard($feed['id_feedpost'], $user['nama'], $user['foto'], $feed['foto_feedpost'], $feed['description']);
+                        continue;
+                    }   
+                    $followQuery = mysqli_query($conn, "select * from follow where id_user = '$id'");
+                    while($follow = mysqli_fetch_array($followQuery)) {
+                        
+                        if($feed['id_user'] == $follow['id_follow']) {
+                            $id_follow = $follow['id_follow'];
+                            $o_userQuery = mysqli_query($conn, "select * from user where id = '$id_follow'");
+                            $o_user = mysqli_fetch_array($o_userQuery);
+                            postCard($feed['id_feedpost'], $o_user['nama'], $o_user['foto'], $feed['foto_feedpost'], $feed['description']);
+                        } 
                     }
                 }
             ?>

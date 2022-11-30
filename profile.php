@@ -5,6 +5,8 @@ include 'connect.php';
 include 'isloggin.php';
 include 'connect.php';
 include 'widgets/navigation.php';
+include 'widgets/post_card.php';
+include 'widgets/create_post_modal.php';
 $id = $_SESSION['id'];
     $sql ="select * from user where id = '$id'";
 	$query = mysqli_query($conn,$sql);
@@ -19,6 +21,9 @@ $id = $_SESSION['id'];
 
     $followerya = mysqli_query($conn, "select count(*) from follow where id_follow = '$id'");
     $follower = mysqli_fetch_array($followerya);
+
+    $postannya = mysqli_query($conn, "select count(*) from feedpost where id_user = '$id'");
+    $postnih = mysqli_fetch_array($postannya);
 ?>
 <link rel="stylesheet" href="profile.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -55,7 +60,7 @@ $id = $_SESSION['id'];
                 <ul class="bagianfollowerpost d-flex">
                   <li class="postutama">
                     <div class="post2">
-                      <span class="post"> 4 <span>Post 
+                      <span class="post"> <?PHP echo "$postnih[0]"?> <span>Post 
                       </div>
                   </li>
                   <li class="followingutama">
@@ -120,10 +125,15 @@ $id = $_SESSION['id'];
           
     <div class="container text-center">
         <div class="row row-cols-auto">
-            <div class="col"><td><?PHP echo"<img src= 'assets/post/"; echo $user['post'];  echo "' width='300' height='200'>"?></td></div>
-            <div class="col"><td><?PHP echo"<img src= 'assets/post/"; echo $user['post'];  echo "' width='300' height='200'>"?></td></div>
-            <div class="col"><td><?PHP echo"<img src= 'assets/post/"; echo $user['post'];  echo "' width='300' height='200'>"?></td></div>
-            <div class="col"><td><?PHP echo"<img src= 'assets/post/"; echo $user['post'];  echo "' width='300' height='200'>"?></td></div>
+            <?php
+
+            $sql3= "select*from feedpost where id_user=$id ";
+            $query = mysqli_query($conn, $sql3);
+            while($hasilpost = mysqli_fetch_array ($query)){
+            echo"<img src= 'assets/feed_post/" ; echo $hasilpost['foto_feedpost'];  echo "'class='post' width='100px' height='200px' >";
+            }
+            ?>
+            
             </div>
     </div>
 </div>

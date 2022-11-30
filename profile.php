@@ -5,6 +5,8 @@ include 'connect.php';
 include 'isloggin.php';
 include 'connect.php';
 include 'widgets/navigation.php';
+include 'widgets/post_card.php';
+include 'widgets/create_post_modal.php';
 $id = $_SESSION['id'];
     $sql ="select * from user where id = '$id'";
 	$query = mysqli_query($conn,$sql);
@@ -120,10 +122,13 @@ $id = $_SESSION['id'];
           
     <div class="container text-center">
         <div class="row row-cols-auto">
-            <div class="col"><td><?PHP echo"<img src= 'assets/post/"; echo $user['post'];  echo "' width='300' height='200'>"?></td></div>
-            <div class="col"><td><?PHP echo"<img src= 'assets/post/"; echo $user['post'];  echo "' width='300' height='200'>"?></td></div>
-            <div class="col"><td><?PHP echo"<img src= 'assets/post/"; echo $user['post'];  echo "' width='300' height='200'>"?></td></div>
-            <div class="col"><td><?PHP echo"<img src= 'assets/post/"; echo $user['post'];  echo "' width='300' height='200'>"?></td></div>
+            <?php
+            $sql3= "select* from feedpost ";
+            $query = mysqli_query($conn, $sql3);
+            $hasilpost = mysqli_fetch_array ($query);
+              echo $hasilpost['id'];
+            
+            ?>
             </div>
     </div>
 </div>

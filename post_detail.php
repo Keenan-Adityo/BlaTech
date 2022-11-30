@@ -1,19 +1,4 @@
-<?php
-include "./connect.php";
-function postModal($id, $name, $pfp, $post, $description) {
-    global $conn;
-    $commentQ = mysqli_query($conn, "select * from comment where id_feedpost = '$id'");
-    // $comment = array(mysqli_fetch_array($commentQ));
-    $commentArr = array();
-    while($comment = mysqli_fetch_assoc($commentQ)) {
-        $commentArr[] = $comment;
-    } 
-?>
-    <div class='modal fade modal-xl' id='comment_<?= $id?>' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
-      <div class='modal-dialog modal-dialog-centered'>
-          <div class='modal-content'>
-          <div class='modal-body'>
-              <div class='d-flex flex-row'>
+<div class='d-flex flex-row'>
                   <div class='p-2'>
                       <img src='assets/feed_post/<?= $post ?>' width='500' height'500'>
                   </div>  
@@ -52,18 +37,3 @@ function postModal($id, $name, $pfp, $post, $description) {
                       </div>
                   </div>
               </div>
-          </div>
-          </div>
-      </div>
-  </div><?php
-}
-
-function commentCard($id, $comment) {
-    global $conn;
-    $userQuery = mysqli_query($conn, "select * from user where id = '$id'");
-    $user = mysqli_fetch_array($userQuery);
-     
-    ?><p><b><?= $user['username'] ?></b> <?= $comment ?></p>
-    <?php
-}
-?>

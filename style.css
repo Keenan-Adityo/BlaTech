@@ -72,6 +72,10 @@ body {
   text-decoration: none;
   color: black;
 }
+.hrefblue {
+  text-decoration: none;
+  color: blue;
+}
 
 .kGrey {
   color: #969696;
@@ -87,6 +91,9 @@ body {
   color: #969696;
   font-size: x-small;
 } 
+.commentSection::-webkit-scrollbar {
+  display: none;
+}
 
 /* post */
  /* .card {

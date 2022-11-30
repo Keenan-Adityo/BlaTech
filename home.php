@@ -2,11 +2,17 @@
     session_start();
     include 'widgets/navigation.php';
     include 'widgets/post_card.php';
+    include 'widgets/create_post_modal.php';
     include 'isLogged.php';
     include 'connect.php';
     $id = $_SESSION['id'];
     $userQuery = mysqli_query($conn, "select * from user where id = '$id'");
     $user = mysqli_fetch_array($userQuery);
+
+    // function follow($add) {
+    //     $addFollow = mysqli_query($conn, "INSERT INTO `follow` (`id_user`, `id_follow`) VALUES ('$id', '$add')"); 
+    // }
+    
 ?>
 
 <html lang="en">
@@ -48,44 +54,57 @@
                 </div>
             </div>
             <div class="d-flex flex-row align-items-center">
-                <p class='kGrey'>Suggestions For You</p>
+                <p class='kGrey' id='tes'>Suggestions For You</p>
             </div>
             <?php
                 $counter = 0;
                 $suggestQ = mysqli_query($conn, "select * from user");
                 while($suggest = mysqli_fetch_array($suggestQ)) {
-                    if($counter == 5) break;
-                    $followQuery = mysqli_query($conn, "select * from follow where id_user = '$id' and id_follow='". $suggest['id'] ."'");
-                    if(!$follow = mysqli_fetch_array($followQuery)) {
-                        $counter++;
-                        echo "<div class='d-flex flex-row align-items-center'>
-                            <div class='p-2'>
-                                <img src='assets/profile_picture/" . $suggest['foto'] . "' alt='avatar' class='avatar' style='width: 40px;height: 40px;'>
-                            </div>
-                            <div class='p-2'>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <b>" . $suggest['username'] . "</b> <br>
-                                    </td>
-                                    <td rowspan='2'>
-                                        <div class='suggestf'>Follow</div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class='suggestfn'>" . $suggest['nama'] . "</div>     
-                                    </td>
-                                </tr>
-                            </table>
-                            </div>
-                        </div>";
-                    } 
                    
+                    if($counter == 5) break;    
                     
+                    $followQuery = mysqli_query($conn, "select * from follow where id_user = '$id' and id_follow='". $suggest['id'] ."'");
+                    if(!$follow = mysqli_fetch_array($followQuery) and $id != $suggest['id']) {
+                        $counter++; ?>
+                        <div class="" style="width:400px">
+                            <div class='d-flex flex-row justify-content-between'>
+                                <div class='p-2'>
+                                    <div class='d-flex '>
+                                        <img class="mr-5" src='assets/profile_picture/<?= $suggest['foto'] ?>' alt='avatar' class='avatar' style='width: 40px;height: 40px;margin-right:20px'>
+                                        <div class='d-flex flex-column ml-10'>
+                                                <b> <?= $suggest['username'] ?> </b> 
+                                        <span class='kGrey'><?= $suggest['nama'] ?></span> 
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class='p-2'>
+                                     <!-- buttonnya bikin error -->
+                                     <a href="follow.php?target=<?= $suggest['id'] ?>" target="_blank" ><button class="btn btn-light" onclick="follow('<?= $suggest['id'] ?>')"> <div id='foll<?=$suggest['id']?>' class="hrefblue">Follow</div> </button></a> 
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    } 
                 }
-            ?>
+                ?>
         </div>
-    </div>        
-</body>
+    </div>  
+                <script>
+                    function follow(id) {
+                        if(document.getElementById('foll'+id).innerText == 'Follow') {
+                            // $.ajax({
+                            //     type: "POST",
+                            //     url: "follow.php",
+                            //     data: { add: id }
+                            // }).done(function( msg ) {
+                                
+                            // });
+                            document.getElementById('foll'+id).innerHTML = 'Unfollow';
+                            
+                        } else {
+                            document.getElementById('foll'+id).innerHTML = 'Follow';
+                        }
+                    }
+                </script> 
+         </body>
 </html>

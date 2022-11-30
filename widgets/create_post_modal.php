@@ -5,6 +5,8 @@ include "connect.php";
 $foto = $_FILES['foto']['name'];
 $desc = $_POST['desc'];
 $id   = $_SESSION['id'];
+$username = $_SESSION['username'];
+$pfp = $_SESSION['pfp'];
 if(isset($_POST['insert'])){
 	
 
@@ -26,34 +28,26 @@ if(isset($_POST['insert'])){
 }
 }
 ?>
-<div class="modal fade" id="create_post" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+<div class="modal fade modal-sm" id="create_post" aria-hidden="true" aria-labelledby="create_post_title" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
+        <h1 class="modal-title fs-5" id="create_post_title">Create Post</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <table>
         <form name='formulir' method='post' action='<?php $_SERVER['PHP_SELF']; ?>' enctype='multipart/form-data' >
 
-            <tr >
-            <td>Ceritakan Apa Yang Kamu Pikirkan!</td>
-            <td></td>
-            <td><textarea name="desc"></textarea></td>
-          </tr>
-          <tr >
-            <td>Foto</td>
-            <td>:</td>
-            <td><input type="file" accept=".png,.jpg" name="foto" ></td>
-          </tr>
-            <tr>
-            <td></td>
-            <td></td>
-            <td><input name='insert' type='submit' value='POST' class="btn"></td>
-          </tr>	
+        <div class='d-flex flex-row justify-content-start'>
+                <div class='p-2'>
+                    <img src='assets/profile_picture/<?=  $pfp ?>' alt='avatar' class='avatar' style='width: 25px; height: 25px;'>
+                </div>
+                <div class='p-2 flex-fill'><b> <?=  $username ?></b></div>
+            </div>
+              <textarea name="desc" class="form-control mb-2"></textarea>
+          <input type="file" accept=".png,.jpg" name="foto" class="form-control mb-2">
+          <input name='insert' type='submit' value='Create Post' class="btn btn-primary">
         </form>
-        </table>
       </div>
     </div>
   </div>

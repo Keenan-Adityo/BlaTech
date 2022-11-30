@@ -8,7 +8,7 @@
     $id = $_SESSION['id'];
     $userQuery = mysqli_query($conn, "select * from user where id = '$id'");
     $user = mysqli_fetch_array($userQuery);
-
+    
     // function follow($add) {
     //     $addFollow = mysqli_query($conn, "INSERT INTO `follow` (`id_user`, `id_follow`) VALUES ('$id', '$add')"); 
     // }
@@ -74,7 +74,7 @@
                     $followQuery = mysqli_query($conn, "select * from follow where id_user = '$id' and id_follow='". $suggest['id'] ."'");
                     if(!$follow = mysqli_fetch_array($followQuery) and $id != $suggest['id']) {
                         $counter++; ?>
-                        <div class="" style="width:400px">
+                        <div class="" style="width:300px">
                             <div class='d-flex flex-row justify-content-between'>
                                 <div class='p-2'>
                                     <div class='d-flex '>

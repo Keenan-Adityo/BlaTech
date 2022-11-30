@@ -23,12 +23,12 @@ function postCard($id, $name, $pfp, $post, $description) {
             <div class='d-flex flex-column'>
                 <div class='d-flex flex-row'>
                     <div class='p-2'>
-                        <button type='button' class='btn'>
+                        <button type='button' class='btn btn-light'>
                             <i class='bi bi-heart'></i>
                     </button>
                     </div>
                     <div class='p-2'>
-                        <button type='button' class='btn' data-bs-toggle='modal' data-bs-target='#comment_<?= $id ?>'>
+                        <button type='button' class='btn btn-light' data-bs-toggle='modal' data-bs-target='#comment_<?= $id ?>'>
                             <i class='bi bi-chat'>
                             </i>
                         </button>
@@ -36,7 +36,8 @@ function postCard($id, $name, $pfp, $post, $description) {
                     </div>
                 </div>
                 <p><b><?=  $name ?></b> <?=  $description ?></p>
-                <p><button type='button' class='btn text-start' data-bs-toggle='modal' data-bs-target='#comment_<?= $id ?>'>
+                <p><button type='button' class='btn text-start' style=" text-align: left !important; padding: 0; " 
+                data-bs-toggle='modal' data-bs-target='#comment_<?= $id ?>'>
                     View all <?= $commCount[0] ?> comments
                 </button></p>
             </div>

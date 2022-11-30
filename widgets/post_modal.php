@@ -12,12 +12,12 @@ function postModal($id, $name, $pfp, $post, $description) {
     <div class='modal fade modal-xl' id='comment_<?= $id?>' data-bs-backdrop='static' data-bs-keyboard='false' tabindex='-1' aria-labelledby='staticBackdropLabel' aria-hidden='true'>
       <div class='modal-dialog modal-dialog-centered'>
           <div class='modal-content'>
-          <div class='modal-body'>
+          <div class='modal-body' style="background-color: #fafafa;">
               <div class='d-flex flex-row'>
                   <div class='p-2'>
                       <img src='assets/feed_post/<?= $post ?>' width='500' height'500'>
                   </div>  
-                  <div class='p-2 flex-fill'>
+                  <div class='p-2 flex-fill' >
                       <div class='d-flex flex-column'>
                           <div class='d-flex flex-row'>
                               <div class='p-2'>
@@ -26,8 +26,8 @@ function postModal($id, $name, $pfp, $post, $description) {
                               <div class='p-2 flex-fill'><?=  $name ?></div>
                               <div class='p-2'><button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button></div>
                           </div>
-                          <div class="border border-success p-2 mb-2 border-opacity-10">
-                          <div class="commentSection" style='overflow-y: scroll; height:350px; border='1'>
+                          <div class="border border-success p-2 mb-2 border-opacity-10" style="background-color: white;">
+                          <div class="commentSection" style="overflow-y: scroll; height:350px; border='1'">
                           <?php
                             foreach($commentArr as $value) {
                                 commentCard($value['id_user'], $value['comment']);  
@@ -38,17 +38,24 @@ function postModal($id, $name, $pfp, $post, $description) {
                         </div>
                           <div class='p-2'>
                               <div class='d-flex flex-row'>
-                                  <div class='p-2'><i class='bi bi-heart'></i></div>
+                                <div class='p-2'>
+                                    <button type='button' class='btn btn-light'>
+                                        <i class='bi bi-heart'></i>
+                                    </button>
+                                </div>
                                   <div class='p-2'>
+                                    <button type='button' class='btn btn-light'>
                                       <i class='bi bi-chat'>
                                       </i>
+                                    </button>
                                   </div>
                               </div>
                           </div>
                           <div class='p-2'>
-                              <input type='text' name='komen'>
-                              <input type='submit' value='comment'>
+                              <input type='text' name='komen' class="form-control mb-2" placeholder="Add a comment...">
                           </div>
+                            <input type='submit' value='comment' class="btn btn-primary float-right" >
+                          
                       </div>
                   </div>
               </div>

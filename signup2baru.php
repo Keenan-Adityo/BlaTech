@@ -3,13 +3,12 @@ session_start();
 include 'connect.php';
 //include 'isSigning.php';
 
-$_SESSION['username'] = "bambang";
 $username = $_SESSION['username'];
 $password = $_SESSION['password'];
 $nama = $_SESSION['nama'];
 $email = $_SESSION['email'];
 $bio = $_POST['bio'];
-$foto = $_POST['foto'];
+$foto = $_FILES['foto']['name'];
 
 
 if(isset($_POST['signup'])){
@@ -19,9 +18,9 @@ if(isset($_POST['signup'])){
     $row = mysqli_fetch_array($query);
     $id = $row['id'];
 
-	$filename = $_FILES["foto"]["name"];
+    $filename = $_FILES["foto"]["name"];
     $tempname = $_FILES["foto"]["tmp_name"];
-    $folder = "./assets/profile_picture/" . $filename;
+    $folder = "./assets/profile_picture/".$filename;
     move_uploaded_file($tempname,$folder);
 
     $sql2 = "update user set foto='$filename',bio='$bio' where id='$id'";
@@ -60,28 +59,27 @@ if(isset($_POST['signup'])){
 <body>
 
 <div class="pt-5">
-<h1 class="text-center">Hi , <?echo "$username;" ;?></h1>
+<h1 class="text-center">Hi , <?php echo "$username";?></h1>  
 <div class="container">
 <div class="row">
 <div class="col-md-5 mx-auto">
 <div class="card card-body">
     <img src="assets/logo.png" width="200" length="200" style="margin : auto">
-    <form id="submitForm" name="form" method="post">
+    <form id="form" name="form" method="post">
     <div class="form-group required">
-            <label class="d-flex flex-row align-items-center" for="password">Password</label>
-        <input name='password' type='password' placeholder="password" class="form-control" required
-			    oninvalid="this.setCustomValidity('masukan Password anda disini!')" 
-			    oninput="this.setCustomValidity('')" 
-			    class="input">
+            <label class="d-flex flex-row align-items-center" for="password">Katakan Semua Tentangmu! : </label>
+            <textarea name="bio" id="bio" style="resize: none; width: 400px; height: 200px;" class="signup2" ></textarea>
         </div>
+        <br>
+        <br>
     <div class="form-group required">
-            <label class="d-flex flex-row align-items-center" for="password">Upload Foto Terbaik Mu</label>
-            <input name='file' type='file' class="signup2">
+            <label class="d-flex flex-row align-items-center" for="password">Upload Foto Terbaik Mu : </label>
+            <input type="file" accept=".png,.jpg" name="foto" >
         </div>
 
 
 <div class="form-group pt-1">
-<input name='login' type='submit' value='Log in' class="login" class="btn btn-primary btn-block">
+<input name='signup' type='submit' value='Mulai Menjelajah Blatech!' class="login" class="btn btn-primary btn-block">|<input type="button" onclick="location.href='index.php';" value="Lewati">
 </div>
 </form>
 </p>

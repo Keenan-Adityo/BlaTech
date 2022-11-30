@@ -4,11 +4,11 @@ include 'connect.php';
 
 $username = $_POST['username'];
 $password = $_POST['password'];
-$password2 = $_POST['konfirmasiPass'];
+$password2 = $_POST['konfirmasipass'];
 $email = $_POST['email'];
 $nama = $_POST['nama'];
 
-if(isset($_POST['login'])){
+if(isset($_POST['signup'])){
     if($password == $password2){
     $sql = "select * from user where username ='$username'";
     $query = mysqli_query($conn,$sql);
@@ -17,7 +17,7 @@ if(isset($_POST['login'])){
         ?>
         <script>
             alert("Silahkan Pilih Username Lain");
-            document.location="signup.php";
+            document.location="signupbaru.php";
         </script>
     <?php
 
@@ -35,14 +35,19 @@ if(isset($_POST['login'])){
         ?>
         <script>
             alert("Data Berhasil Dimasukan!");
-            document.location="signup2.php";
+            document.location="signup2baru.php";
         </script>
     <?php
 
-    }   
-}else{
- 
-}
+    }
+    }else{
+        ?>
+        <script>
+            alert("Konfirmasi Password Mungkin Salah");
+            document.location="signupbaru.php";
+        </script>
+    <?php
+    }
 }
 ?>
 
@@ -103,7 +108,7 @@ if(isset($_POST['login'])){
         
 
 <div class="form-group pt-1">
-<input name='login' type='submit' value='log in'style="border: 2px solid black;
+<input name='signup' type='submit' value='Signup'style="border: 2px solid black;
   border-radius: 10px 10px;" > | <input type="button" onclick="location.href='index.php';" value="Kembali" style="border: 2px solid black;
   border-radius: 10px 10px;" />
 </div>

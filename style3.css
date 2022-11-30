@@ -1,5 +1,5 @@
 body{
-  background: #5a3f2f !important;
+  background: #837b76 !important;
   font-family: 'Muli', sans-serif;
   
 }
@@ -12,14 +12,14 @@ a{
   color: #333;
 }
 a:hover{
-  color: #5a3f2f;
+  color: #837b76;
   text-decoration: none;
 }
 .form-control:focus {
 
     color: #000;
     background-color: #fff;
-    border:2px solid #5a3f2f;
+    border:2px solid #837b76;
     outline: 0;
     box-shadow: none;
    
@@ -27,14 +27,26 @@ a:hover{
 }
 
 .btn{
-  background: #5a3f2f;
-  border: #5a3f2f;
+  background: #837b76;
+  border: #837b76;
 }
 .btn:hover {
-  background: #5a3f2f;
-  border: #5a3f2f;
+  background: #837b76;
+  border: #837b76;
 }
 
 login{
   text-decoration: none;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
 }

@@ -28,7 +28,7 @@ if(isset($_POST['insert'])){
 }
 }
 ?>
-<div class="modal fade modal-sm" id="create_post" aria-hidden="true" aria-labelledby="create_post_title" tabindex="-1">
+<div class="modal fade modal-sm" id="create_post" data-bs-backdrop='static' aria-hidden="true" aria-labelledby="create_post_title" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">

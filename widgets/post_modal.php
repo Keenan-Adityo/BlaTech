@@ -1,5 +1,7 @@
 <?php
 include "./connect.php";
+session_start();
+$username = $_SESSION['username'];
 function postModal($id, $name, $pfp, $post, $description) {
     global $conn;
     $commentQ = mysqli_query($conn, "select * from comment where id_feedpost = '$id'");
@@ -28,12 +30,15 @@ function postModal($id, $name, $pfp, $post, $description) {
                           </div>
                           <div class="border border-success p-2 mb-2 border-opacity-10" style="background-color: white;">
                           <div class="commentSection" style="overflow-y: scroll; height:350px; border='1'">
+                          <table id="tbl_<?=$id?>"></table>
+                          <p><b><?= $name ?></b> <?= $description ?></p>
                           <?php
+                          echo $user_username;
                             foreach($commentArr as $value) {
                                 commentCard($value['id_user'], $value['comment']);  
                             }
-                            
                             ?>
+                            
                           </div>
                         </div>
                           <div class='p-2'>
@@ -51,11 +56,12 @@ function postModal($id, $name, $pfp, $post, $description) {
                                   </div>
                               </div>
                           </div>
-                          <div class='p-2'>
-                              <input type='text' name='komen' class="form-control mb-2" placeholder="Add a comment...">
-                          </div>
-                            <input type='submit' value='comment' class="btn btn-primary float-right" >
-                          
+                          <form name="form" onsubmit="comment(event, <?=$id?>, <?= $username?>)" >
+                              <div class='p-2'>
+                                  <input type='text' id="komen_<?=$id?>" name='komen' class="form-control mb-2" placeholder="Add a comment...">
+                              </div>
+                                <input type='submit' value='comment' class="btn btn-primary float-right" >
+                          </form>
                       </div>
                   </div>
               </div>

@@ -8,7 +8,7 @@
     $id = $_SESSION['id'];
     $userQuery = mysqli_query($conn, "select * from user where id = '$id'");
     $user = mysqli_fetch_array($userQuery);
-    
+    $username = $_SESSION['username'];
     // function follow($add) {
     //     $addFollow = mysqli_query($conn, "INSERT INTO `follow` (`id_user`, `id_follow`) VALUES ('$id', '$add')"); 
     // }
@@ -35,7 +35,8 @@
                 
                 while($feed = mysqli_fetch_array($feedQuery)) {
                     if($id == $feed['id_user']) {
-                        postCard($feed['id_feedpost'], $user['nama'], $user['foto'], $feed['foto_feedpost'], $feed['description']);
+                        echo $username;
+                        postCard($feed['id_feedpost'], $user['username'], $user['foto'], $feed['foto_feedpost'], $feed['description'], );
                         continue;
                     }   
                     $followQuery = mysqli_query($conn, "select * from follow where id_user = '$id'");
@@ -45,7 +46,7 @@
                             $id_follow = $follow['id_follow'];
                             $o_userQuery = mysqli_query($conn, "select * from user where id = '$id_follow'");
                             $o_user = mysqli_fetch_array($o_userQuery);
-                            postCard($feed['id_feedpost'], $o_user['nama'], $o_user['foto'], $feed['foto_feedpost'], $feed['description']);
+                            postCard($feed['id_feedpost'], $o_user['username'], $o_user['foto'], $feed['foto_feedpost'], $feed['description']);
                         } 
                     }
                 }
@@ -78,7 +79,7 @@
                             <div class='d-flex flex-row justify-content-between'>
                                 <div class='p-2'>
                                     <div class='d-flex '>
-                                        <img class="mr-5" src='assets/profile_picture/<?= $suggest['foto'] ?>' alt='avatar' class='avatar' style='width: 40px;height: 40px;margin-right:20px'>
+                                        <img class="avatar" src='assets/profile_picture/<?= $suggest['foto'] ?>' alt='avatar' class='avatar' style='width: 40px;height: 40px;margin-right:20px'>
                                         <div class='d-flex flex-column ml-10'>
                                                 <b> <?= $suggest['username'] ?> </b> 
                                         <span class='kGrey'><?= $suggest['nama'] ?></span> 
@@ -97,22 +98,22 @@
                 ?>
         </div>
     </div>  
-                <script>
-                    function follow(id) {
-                        if(document.getElementById('foll'+id).innerText == 'Follow') {
-                            // $.ajax({
-                            //     type: "POST",
-                            //     url: "follow.php",
-                            //     data: { add: id }
-                            // }).done(function( msg ) {
-                                
-                            // });
-                            document.getElementById('foll'+id).innerHTML = 'Unfollow';
-                            
-                        } else {
-                            document.getElementById('foll'+id).innerHTML = 'Follow';
-                        }
-                    }
-                </script> 
+    <script>
+        function like(id) {
+            if(document.getElementById("like_" + id).classList.contains('bi-heart')) {
+                document.getElementById("like_" + id).classList.toggle('bi-suit-heart-fill');
+            } else {
+                document.getElementById("like_" + id).classList.toggle('bi-heart');
+            }
+        }
+
+        function comment(e, id, username) {
+                e.preventDefault();
+                let table = document.getElementById("tbl_" + id);
+                let row = table.insertRow(0);
+                let comment = document.getElementById("komen_" + id).value;
+                row.insertCell(0).innerHTML = "<p><b><?= $username ?></b> " + comment +"</p>";
+            }
+    </script> 
          </body>
 </html>

@@ -38,7 +38,6 @@ function postModal($id, $name, $pfp, $post, $description) {
                                 commentCard($value['id_user'], $value['comment']);  
                             }
                             ?>
-                            
                           </div>
                         </div>
                           <div class='p-2'>

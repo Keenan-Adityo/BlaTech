@@ -35,7 +35,6 @@
                 
                 while($feed = mysqli_fetch_array($feedQuery)) {
                     if($id == $feed['id_user']) {
-                        echo $username;
                         postCard($feed['id_feedpost'], $user['username'], $user['foto'], $feed['foto_feedpost'], $feed['description'], );
                         continue;
                     }   
